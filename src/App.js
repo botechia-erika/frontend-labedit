@@ -1,10 +1,19 @@
+import { AppRouter } from "./router/AppRouter";
+import { ChakraProvider } from "@chakra-ui/react";
+import GlobalStyled from "./globals/globalStyled";
+
 import "./styles.css";
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <ChakraProvider>
+  <>
+  <GlobalStyled/>
+      <div className="App">
+        <GlobalStyled />
+        <AppRouter />
+      </div>
+      </>
+    </ChakraProvider>
   );
 }
