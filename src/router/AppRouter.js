@@ -11,6 +11,7 @@ export function AppRouter() {
   return (
     <BrowserRouter>
       <Header />
+      <div className="pAll">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
@@ -21,6 +22,7 @@ export function AppRouter() {
         <Route path="/labe-ecommerce" element={<LabeEcommerce/>} />
         <Route path="/details/:id" element={<PostDetails />} />
       </Routes>
+      </div>
     </BrowserRouter>
   );
 }

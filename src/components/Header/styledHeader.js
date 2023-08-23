@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const HeaderCtn = styled.header`
-  margin-top: 25px;
+position: fixed;
+top: 0;
+
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  width: 90%;
+  width: 100%;
+  z-indez:11;
   min-height: 80px;
   background: #434343;
   vertical-align: flex-start;

@@ -4,13 +4,15 @@ const GlobalStyled = createGlobalStyle`
 box-sizing: border-box;
 padding: 0;
 margin: 0;
-background: var(--light-default);
 font-family: 'IBM Plex Sans', sans-serif;
-background: #e5e5e5;
 :root{
     --light-default: #FFFFFF;
     --principal-orange: #FF8A00;
-    --orange-default: rgba(255, 138, 0, 1);}
+    --orange-default: rgba(255, 138, 0, 1);
+    --orange-rose: #FF6A51;
+    --gray-hf: #434343;
+
+}
 `;
 
 export default GlobalStyled;

@@ -1,7 +1,21 @@
-import React from 'react'
+import React , {useState, useEffect} from 'react'
 import { CtnLabeEcommerce } from './styledLabeEcommerce'
 import {Button} from '@chakra-ui/react'
+import CardList from '../../components/CardList/CardList'
+import { AsideLabecommerce } from '../../components/AsideLabecommerce/AsideLabecommerce'
 export function LabeEcommerce() {
+
+  const [ items, setItems] = useState([])
+  const [searchName, setSearchName] = useState("")
+useEffect(() => {
+  fetch("http://localhost:3003/products")
+  .then(response => response.json())
+      // 4. Setting *dogImage* to the image url that we received from the response above
+  .then(data => setItems(data.result))
+},[])
+
+
+
   return (
     <CtnLabeEcommerce>
     
@@ -19,12 +33,16 @@ export function LabeEcommerce() {
 
   </header>
   <div class="left-side">
+      <AsideLabecommerce setSearchName={setSearchName} searchName={searchName}/>
    </div>
-  <main>Main Content</main>
+  <main>
+  
+  <CardList items={items}/>
+  
+  </main>
   <div class="right-side">Right Snidebar</div>
   <footer>
-    <p>brand name </p>
-    <span>&copy 2023</span>
+ 
   </footer>
 </div>
     </CtnLabeEcommerce>
