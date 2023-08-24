@@ -8,11 +8,13 @@ function CardList({items}) {
         <li key={item.id}>
           <div>
             <h3>{item.name}</h3>
+            <p>Alugue Mensal</p>
             <img src={item.image_url} alt={'imagem do produto'}/>
            
-              <p>R$ {item.price.toFixed(2)}</p>
+              <p>R$: {item.price.toFixed(2)}</p>
               <p>{item.description}</p>
-          
+              <button>Alugue</button>
+              <button>Favoritos</button>
           </div>
         </li>
       ))}

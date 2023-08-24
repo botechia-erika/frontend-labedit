@@ -50,22 +50,7 @@ html {
     font-size: 0.7rem;
   }
   
-  .left-side {
-    BACKGROUND: ORANGERED;
-  }
-  
-  main {
-    background: rebeccapurple;
-  }
-  
-  .right-side {
-    background: greenyellow;
-  }
-  
-  footer {
-    border: 4px solid #6f35f1;
-  }
-  
+ 
   /* Mobile Styles */
   .parent {
     display: grid;

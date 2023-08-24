@@ -10,7 +10,7 @@ export const goToSignUp = (navigate)=>{
     navigate('/sign-up')
 }
 export const goToLabeEcommerce = (navigate)=>{
-    navigate('/labe-ecommerce')
+    navigate('/labe-frota')
 }
 
 export const goToLabeEdit=(navigate)=>{

@@ -22,12 +22,12 @@ useEffect(() => {
 
   <div class="parent">
   <header>
-    <h1>LabeEcommerce</h1>
+    <h1>LabeFROTA</h1>
     <span>
-      <Button>TrackOffers</Button>
-      <Button>Snippets</Button>
-      <Button>ToolsAndTips</Button>
-      <Button>ColabCLUB</Button>
+      <Button>LabeFROTA</Button>
+      <Button>frotaPLANS</Button>
+      <Button>frotaCADASTRO</Button>
+      <Button>frotaCLUB</Button>
     </span>
 
 
