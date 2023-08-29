@@ -3,9 +3,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 import GlobalStyled from "./globals/globalStyled";
 import {Footer} from './components/Footer/Footer'
 import "./styles.css";
+import { EcommerceProvider } from "./globals/globalEcommerce";
 
 export default function App() {
-  return (
+  return (<EcommerceProvider>
     <ChakraProvider>
   <>
   <GlobalStyled/>
@@ -18,5 +19,6 @@ export default function App() {
       <Footer/>
       </>
     </ChakraProvider>
+    </EcommerceProvider>
   );
 }

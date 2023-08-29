@@ -8,7 +8,7 @@ top: 0;
   flex-flow: row wrap;
   justify-content: space-around;
   width: 100%;
-  z-indez:11;
+  z-index:11;
   min-height: 80px;
   background: #434343;
   vertical-align: flex-start;
