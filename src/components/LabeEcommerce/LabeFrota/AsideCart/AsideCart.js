@@ -8,15 +8,25 @@ min-height: 200px;
 
 export function AsideCart({data, setData}) {
 const [cotacao, setCotacao] = useState(0)
-const handleSubmit = (e)=>{
-    e.preventDefault()
-    if(quantity < 1){
-        alert('deve selecionar quantidade')
-        return
+const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const product = document.getElementById('product').value;
+    const quantity = parseInt(document.getElementById('quantity').value);
+  
+    if (quantity < 1) {
+      alert('Debes seleccionar una cantidad válida');
+      return;
     }
-}
-
-
+  
+    // Aquí puedes escribir la lógica para calcular la cotización según el producto y la cantidad seleccionada
+  
+    // Ejemplo de cálculo de cotización: precio del producto * cantidad de meses
+    const price = data.find((p) => p.name === product)?.price || 0;
+    const total = price * quantity;
+  
+    setCotacao(total);
+  };
   return (
     <CartCtn>
     <Heading>

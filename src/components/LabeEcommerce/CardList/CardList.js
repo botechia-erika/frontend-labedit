@@ -20,10 +20,34 @@ export function CardList({ item }) {
   const [nickname, setNickname] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
+const [email, setEmail] = useState('')
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
+    const formData = {
+      registerName,
+      cpfCnpj,
+      nickname,
+      email,
+      password,
+      passwordConfirm,
+    };
+    try {
+      const response = await fetch('http://localhost:3003/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+         alert('usuario cadastrado com sucesso')
+      } else {
+        alert('confira os dados do formulario')
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -34,7 +58,7 @@ export function CardList({ item }) {
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} method="POST" action="http://localhost:3003/users">
               <Input
                 type="text"
                 placeholder="Nome para Cadastrado"
@@ -60,6 +84,15 @@ export function CardList({ item }) {
                 mt={'12px'}
                 value={nickname}
                 onChange={e => setNickname(e.target.value)}
+              />
+              <Input
+                type="email"
+                placeholder="email@email.com"
+                name="email"
+                id="email"
+                mt={'12px'}
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
               <Input
                 type="password"
