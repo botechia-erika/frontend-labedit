@@ -8,7 +8,7 @@ export function AsideLabecommerce({ searchName}) {
         type="text"
         name="searchName"
         id="searchName"
-   
+        
         onChange={searchName}
         placeholder="Nome do Produto"
         bg="white"

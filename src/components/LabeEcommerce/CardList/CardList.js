@@ -9,9 +9,11 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
-  Input
+  Input,
+  onClose
 } from '@chakra-ui/react';
 import { CardsCtn } from './styledCardList';
+import { ModalApi } from '../LabeFrota/ModalApi/ModalApi';
 
 export function CardList({ item }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -20,7 +22,8 @@ export function CardList({ item }) {
   const [nickname, setNickname] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
-const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('')
+  const [tela, setTela] = useState(1)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,84 +53,34 @@ const [email, setEmail] = useState('')
     }
   };
 
+
+
   return (
     <CardsCtn>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <form onSubmit={handleSubmit} method="POST" action="http://localhost:3003/users">
-              <Input
-                type="text"
-                placeholder="Nome para Cadastrado"
-                name="registerName"
-                id="registerName"
-                value={registerName}
-                onChange={e => setRegisterName(e.target.value)}
-              />
-              <Input
-                type="text"
-                placeholder="CPF ou CNPJ do Cadastrado"
-                name="cpfCnpj"
-                id="cpfCnpj"
-                mt={'12px'}
-                value={cpfCnpj}
-                onChange={e => setCpfCnpj(e.target.value)}
-              />
-              <Input
-                type="text"
-                placeholder="Username"
-                name="nickname"
-                id="nickname"
-                mt={'12px'}
-                value={nickname}
-                onChange={e => setNickname(e.target.value)}
-              />
-              <Input
-                type="email"
-                placeholder="email@email.com"
-                name="email"
-                id="email"
-                mt={'12px'}
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-              />
-              <Input
-                type="password"
-                placeholder="senha"
-                name="password"
-                id="password"
-                mt={'12px'}
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-              <Input
-                type="password"
-                placeholder="Confirmar Senha"
-                name="passwordConfirm"
-                id="passwordConfirm"
-                mt={'12px'}
-                value={passwordConfirm}
-                onChange={e => setPasswordConfirm(e.target.value)}
-              />
-              <Button colorScheme="blue" mr={3} type="submit" zIndex={0}>
-                Submit
-              </Button>
-              <Button variant="ghost" onClick={onClose}>
-                Cancel
-              </Button>
-            </form>
-          </ModalBody>
 
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose} zIndex={0}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
+      <Modal isOpen={isOpen} onClose={onClose}>
+ <ModalContent>
+ {tela === 1?
+  (      <ModalApi
+            handleSubmit={handleSubmit}
+            cpfCnpj={cpfCnpj}
+            registerName={registerName}
+            nickname={nickname}
+            email={email}
+            password={password}
+            passwordConfirm={passwordConfirm}
+            onClose={onClose}
+            changeTela={()=>{setTela(2)}}
+          />
+        
+      ):(
+<div>
+<ModalCloseButton />
+          <h2>TELA 2</h2>
+     
+        </div>
+        )  }    </ModalContent>
+ 
       </Modal>
  
      

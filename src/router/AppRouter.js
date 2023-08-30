@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./../pages/Home/Home";
+import {LoginBank} from './../pages/LabeBank/Login/Login'
 import { SignIn } from "./../pages/LabeEdit/SignIn/SignIn";
 import { SignUp } from "./../pages/LabeEdit/SignUp/SignUp";
 import { PostDetails } from "./../pages/LabeEdit/PostDetails/PostDetails";
@@ -19,6 +20,7 @@ export function AppRouter() {
         <Route path="/posts" element={<Posts/>} />
         <Route path="/labe-books" element={<LabeBooks />} />
         <Route path="/labe-frota" element={<Products/>} />
+        <Route path="labe-bank" element={<LoginBank/>}/>
         <Route path="/details/:id" element={<PostDetails />} />
       </Routes>
       </div>
