@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useForm} from "../../../hooks/useForm";
 import {
   Modal,
   ModalOverlay,
@@ -8,25 +9,69 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  useDisclosure,
-  Input
+useDisclosure,
+  Input,
+
 } from '@chakra-ui/react';
 import { CardsCtn } from './styledCardList';
 
 export function CardList({ item, addCart }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [registerName, setRegisterName] = useState('');
-  const [cpfCnpj, setCpfCnpj] = useState('');
-  const [nickname, setNickname] = useState('');
+
+
+
+  const onChangeConfirmPassword = (e)=> {
+  e.target.value === password?(
+      setForm({...form, passwordConfirm: e.target.value})
+  ): (
+      alert("confirmação de senha não correspondente")
+  )
+  }
+
+
+   /*ry {
+      const response = await fetch('http://localhost:3003/users', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        alert('user cadastrado com sucesso')
+      } else {
+        alert('confira os dados do formulario ')
+      }
+    } catch (error) {
+      // Handle error
+    }
+  };*/
   const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // Handle form submission
-  };
+const { isOpen, onOpen, onClose } = useDisclosure();
 
-  return (
+const handleSubmit =(e)=>{
+  e.preventDefault()
+}
+
+
+
+
+    //* EXTRA: validando a senha - ter certeza que o usuário sabe qual senha cadastrou
+
+    const {form , onChangeForm} = useForm({registername: "" , username: "", email: "", password: "", password_password: ""})
+
+    const enviarCadastro = () => {
+
+      //* EXTRA: validando a senha - ter certeza que o usuário sabe qual senha cadastrou
+
+      if (form.password === form.password_password) {
+
+        console.log(form.registername , form.username, form.email, form.password_password)
+
+      }
+
+    }
+
+
+    return (
     <CardsCtn>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -34,14 +79,16 @@ export function CardList({ item, addCart }) {
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={enviarCadastro} method={'POST'} action={'http://localhost:3003/users'} >
               <Input
                 type="text"
                 placeholder="Nome para Cadastrado"
                 name="registerName"
                 id="registerName"
-                value={registerName}
-                onChange={e => setRegisterName(e.target.value)}
+                value={form.registerName}
+                onChange={onChangeForm}
+                title={"Nome de Registro , Nome Social ou Razão Social"}
+                required
               />
               <Input
                 type="text"
@@ -49,8 +96,10 @@ export function CardList({ item, addCart }) {
                 name="cpfCnpj"
                 id="cpfCnpj"
                 mt={'12px'}
-                value={cpfCnpj}
-                onChange={e => setCpfCnpj(e.target.value)}
+                value={form.cpfCnpj}
+                onChange={onChangeForm}
+              required
+                title={"CPF : 'ex: 440.999.222-43' ou CNPJ : 'ex: 09.840.590/0001-35''"}
               />
               <Input
                 type="text"
@@ -58,8 +107,17 @@ export function CardList({ item, addCart }) {
                 name="nickname"
                 id="nickname"
                 mt={'12px'}
-                value={nickname}
-                onChange={e => setNickname(e.target.value)}
+                value={form.nickname}
+                onChange={onChangeForm}
+              />
+              <Input
+                  type="email"
+                  placeholder="email@gmail.com"
+                  name="email"
+                  id="email"
+                  mt={'12px'}
+                  value={form.email}
+                  onChange={onChangeForm}
               />
               <Input
                 type="password"
@@ -68,7 +126,7 @@ export function CardList({ item, addCart }) {
                 id="password"
                 mt={'12px'}
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e)=>{setPassword(e.target.value)}}
               />
               <Input
                 type="password"
@@ -76,11 +134,11 @@ export function CardList({ item, addCart }) {
                 name="passwordConfirm"
                 id="passwordConfirm"
                 mt={'12px'}
-                value={passwordConfirm}
-                onChange={e => setPasswordConfirm(e.target.value)}
+                value={form.passwordConfirm}
+                onChange={onChangeForm}
               />
-              <Button colorScheme="blue" mr={3} type="submit" zIndex={0}>
-                Submit
+              <Button  type="submit" colorScheme="blue" mr={3} type="submit" zIndex={0} onClick={enviarCadastro}>
+               ENVIAR
               </Button>
               <Button variant="ghost" onClick={onClose}>
                 Cancel
