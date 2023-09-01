@@ -4,22 +4,27 @@ width: 90%;
 height:100%;
 
 
-
+h3{
+   color: rgba(255, 138, 0, 0.91);
+   font-weight: 900;
+   font-size: 1rem;
+}
 
 
     list-style-type: none;
     display: flex;
     flex-flow: column wrap;
-    width: 240px;
+    width: 340px;
     height: 386px;
     border-radius: 20px;
 background: white;
 margin: 15px 10px;
 align-items: center;
-justify-content: space-around;
-padding-top: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-display: inline-block ;
+justify-content: center;
+padding: 1rem;
+
+    padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
 
  img  {

@@ -15,3 +15,9 @@ div{
 .pAll{
   padding-top: 25px;
 }
+
+button{
+  fill: #F88AC5;
+stroke-width: 4px;
+stroke: #FF088D;
+}

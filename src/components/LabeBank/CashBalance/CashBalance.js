@@ -6,6 +6,10 @@ export const CashBalance = () => {
 <h2>Movimentos de Conta</h2>
 <form>
 <input type='number' min="0" name="monto" id="monto"/>
+
+<select id="tipoMonto" name="categoria">
+    <option value=""></option>
+</select>
 </form>
     </div>
   )

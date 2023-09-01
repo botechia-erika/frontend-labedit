@@ -15,7 +15,7 @@ export function LoginBank() {
           <p>
             <label for="confirmPassword">Senha de Accesso </label>
             <Input type="text" id="confirmPassword" name="confirmPassword" w={'200px'}  mb={'20px'}/>
-</p>  
+             </p>  
             
             <button type="submit">Fazer Login</button>
             

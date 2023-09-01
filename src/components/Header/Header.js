@@ -4,7 +4,7 @@ import { goToHome, goToSignIn, goToSignUp } from '../../router/coordinator';
 import { useNavigate } from "react-router-dom";
 import {Button} from '@chakra-ui/react'
 export function Header() {
- const navigate = useNavigate()
+  const navigate = useNavigate()
   return (
     <HeaderCtn>
     <svg
@@ -13,6 +13,7 @@ export function Header() {
       viewBox="0 0 84 85"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="svgHeader"
     >
       <path
         d="M41.9948 42.0258C41.9948 53.1636 37.5704 63.8451 29.6948 71.7207C21.8193 79.5962 11.1377 84.0207 0 84.0207V42.0258H41.9948Z"

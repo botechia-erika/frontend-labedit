@@ -14,6 +14,8 @@ import {
 } from '@chakra-ui/react';
 import { CardsCtn } from './styledCardList';
 import { ModalApi } from '../LabeFrota/ModalApi/ModalApi';
+import { goToDetails } from '../../../pages/LabeEcommerce/routes/coordinator2';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 
 export function CardList({ item , addCart, click}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -53,7 +55,10 @@ export function CardList({ item , addCart, click}) {
     }
   };
 
+const navigate = useNavigate()
+const {idDetails} = useParams()
 
+const [itemDetails, setItemDetails]= useState(item.id) 
 
   return (
     <CardsCtn>
@@ -91,10 +96,8 @@ export function CardList({ item , addCart, click}) {
 
               <p>R$: {item.price.toFixed(2)}</p>
               <p>{item.description}</p>
-              <Button onClick={onOpen} zIndex={0}>
-                Alugar
-              </Button>
-              <Button onClick={addCart(item)} disable={click}>Favoritos</Button>
+              <Link to={`labe-frota/details/${item.id}`}>DETALHES</Link>
+              <Button onClick={()=>{addCart(item)}}>+Carrinho</Button>
             </div>
 
     </CardsCtn>
