@@ -47,36 +47,26 @@ export function CardList({ item, addCart }) {
 
 const { isOpen, onOpen, onClose } = useDisclosure();
 
-const handleSubmit =(e)=>{
-  e.preventDefault()
-}
-
-
-
-
+    const handleSubmit =(e)=>{
+      e.preventDefault()
+    }
     //* EXTRA: validando a senha - ter certeza que o usuário sabe qual senha cadastrou
-
     const {form , onChangeForm} = useForm({registername: "" , username: "", email: "", password: "", password_password: ""})
 
     const enviarCadastro = () => {
-
       //* EXTRA: validando a senha - ter certeza que o usuário sabe qual senha cadastrou
-
       if (form.password === form.password_password) {
-
         console.log(form.registername , form.username, form.email, form.password_password)
-
       }
-
     }
-
-
     return (
     <CardsCtn>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>
+            <h2 className={'orangeText'}>Cadastro de Usuarios</h2>
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <form onSubmit={enviarCadastro} method={'POST'} action={'http://localhost:3003/users'} >
@@ -127,6 +117,8 @@ const handleSubmit =(e)=>{
                 mt={'12px'}
                 value={password}
                 onChange={(e)=>{setPassword(e.target.value)}}
+                pattern={/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,12}$/g}
+                title={"senha de 8 a 12 alfa-numericos com pelo menos 1 maiuscula e 1 caracter especial"}
               />
               <Input
                 type="password"
@@ -136,12 +128,14 @@ const handleSubmit =(e)=>{
                 mt={'12px'}
                 value={form.passwordConfirm}
                 onChange={onChangeForm}
+                pattern={/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,12}$/g}
+                title={"confirmação de senha deve ser identica ao campo anterior"}
               />
               <Button  type="submit" colorScheme="blue" mr={3} type="submit" zIndex={0} onClick={enviarCadastro}>
                ENVIAR
               </Button>
-              <Button variant="ghost" onClick={onClose}>
-                Cancel
+              <Button type={'delete'} onClick={onClose}>
+                LIMPAR DADOS
               </Button>
             </form>
           </ModalBody>
@@ -154,19 +148,16 @@ const handleSubmit =(e)=>{
           </ModalFooter>
         </ModalContent>
       </Modal>
- 
-     
             <div>
               <h3>{item.name}</h3>
               <p>Alugue Mensal</p>
               <img src={item.image_url} alt={'imagem do produto'} />
-
               <p>R$: {item.price.toFixed(2)}</p>
               <p>{item.description}</p>
               <Button onClick={onOpen} zIndex={0}>
                 Alugar
               </Button>
-              <Button onClick={()=>{addCart(item)}}>Adicionar a Carrinho</Button>
+              <Button onClick={()=>{addCart(item)}}>Carrinho</Button>
             </div>
 
     </CardsCtn>

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Input } from '@chakra-ui/react';
+import {Input, Select} from '@chakra-ui/react';
+import {CarBrand} from "../../../constants/CarBrand";
 
-export function AsideLabecommerce({ searchName}) {
+export function AsideLabecommerce({ searchName, searchBrand}) {
   return (
     <>
       <Input
@@ -15,6 +16,16 @@ export function AsideLabecommerce({ searchName}) {
         w="90%"
         margin="10px auto"
       />
+      <Select
+        onChange={searchBrand}
+      >
+      <option value={""}>Marcas</option>
+          {CarBrand.map((brand, indice)=>(
+            <option value={brand}  key={indice}>{brand}</option>
+              )
+          )}
+      </Select>
+
     </>
   );
 }
