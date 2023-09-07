@@ -1,8 +1,12 @@
 import styled from "styled-components"
-export const SubNavbar1 = styled.div`
+export const DetailsCtn = styled.div`
+min-height: 100vh;
+height: 100%;
  width: 100% ;
- margin-top: 110px;
+ padding-top: 110px;
+
  display: flex ;
 flex-flor: row wrap;
-margin-bottom: 80px ;
+padding-bottom: 80px ;
+color: black;
 `

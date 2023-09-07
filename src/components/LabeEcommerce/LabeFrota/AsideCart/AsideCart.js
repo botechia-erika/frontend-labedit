@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import {Heading, Box, Select ,Input} from '@chakra-ui/react'
 const CartCtn = styled.aside`
 min-height: 200px;
+
+Ul li{
+ list-style-type: none;
+}
 `
 
 

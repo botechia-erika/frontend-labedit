@@ -34,8 +34,8 @@ export function SignIn() {
         <h2>LabEddit</h2>
         <p>O projeto de rede social da Labenu</p>
         <div className="boxInput">
-          <input />
-          <input />
+          <input type="text"  name="inputNickname" id="inputNickname" placeholder='username'/>
+          <input type="password" name="inputPassword"  id="inputPassword" placeholder='senha'/>
         </div>
         <div className="boxButton">
           <button className="button1">CONTINUAR</button>

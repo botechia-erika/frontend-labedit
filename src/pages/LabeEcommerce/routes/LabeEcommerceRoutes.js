@@ -17,7 +17,7 @@ export function LabeEcommerceRoutes () {
             <Button onClick={()=>{goToLogin(navigate, idDetails)}}>FrotaClub</Button>
             <Routes>
         <Route path="/labe-frota/login" element={<h2>login</h2>}/>
-        <Route path="/labe-frota/details/:idDetails" element={<ProductDetails />}/>
+        <Route path="/labe-frota/details/:idDetails/:id" element={<ProductDetails />}/>
         <Route path="/labe-frota/cart" element={<h2>login</h2>}/>
       
       </Routes>

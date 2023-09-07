@@ -23,7 +23,7 @@ export function AppRouter() {
         <Route path="/labe-books" element={<LabeBooks />} />
         <Route path="/labe-frota" element={<Products/>} />
         <Route path="/labe-bank" element={<LoginBank/>}/>
-        <Route path="/details/:id" element={<PostDetails />} />
+        <Route path="/labe-frota/details/:id" element={<PostDetails />} />
         <Route path="/labe-admin" element={<LabeAdmin/>}/>
       </Routes>
       </div>

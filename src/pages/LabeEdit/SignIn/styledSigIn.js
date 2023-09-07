@@ -1,17 +1,15 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 export const GridHome = styled.div`
-  position: relative;
-  z-index: 0;
-  top: 0;
-  height: 100%;
+  min-height: 95vh;
   display: grid;
   width: 100%;
   background: #e5e5e5;
   grid-template-rows: 80px  auto 1fr;
   grid-template-cols: 1fr;
-  margin-bottom: 80px;
-
+  padding-bottom: 80px;
+  padding-top: -80px;
+text-align: center;
   .box1 {
     display: flex;
     flex-flow: row wrap;
@@ -69,5 +67,9 @@ export const GridHome = styled.div`
     max-width: 430px;
     height: 13px;
     margin: 8px;
+  }
+
+  input {
+    text-align: center;
   }
 `;

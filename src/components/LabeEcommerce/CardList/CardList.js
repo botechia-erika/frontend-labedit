@@ -59,7 +59,7 @@ const navigate = useNavigate()
 const {idDetails} = useParams()
 
 const [itemDetails, setItemDetails]= useState(item.id) 
-
+const [id , setId ]= useState(item.id)
   return (
     <CardsCtn>
 
@@ -88,7 +88,7 @@ const [itemDetails, setItemDetails]= useState(item.id)
  
       </Modal>
  
-     
+   
             <div>
               <h3>{item.name}</h3>
               <p>Alugue Mensal</p>
@@ -96,7 +96,7 @@ const [itemDetails, setItemDetails]= useState(item.id)
 
               <p>R$: {item.price.toFixed(2)}</p>
               <p>{item.description}</p>
-              <Link to={`labe-frota/details/${item.id}`}>DETALHES</Link>
+              <Link to={`./details/${id}`}>DETALHES</Link>
               <Button onClick={()=>{addCart(item)}}>+Carrinho</Button>
             </div>
 

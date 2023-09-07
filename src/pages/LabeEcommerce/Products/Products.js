@@ -65,7 +65,13 @@ export function Products() {
   const orderPrice2 = () => {
     setItems([...items].sort((a, b) => (a.price > b.price ? 1 : -1)));
   };
-
+  const filteredItems = items
+      .filter((item) =>
+          !searchBrand || item.name.toUpperCase().includes(searchBrand.toUpperCase())
+      )
+      .filter((item) =>
+          !searchName || item.name.toUpperCase().includes(searchName.toUpperCase())
+      );
   return (
     <CtnLabeEcommerce>
       <div class="parent">
@@ -78,36 +84,10 @@ export function Products() {
           <AsideCart data={items} setData={setItems} />
         </div>
         <main>
-          {items
-            .filter((item) => {
-              if (
-                searchBrand &&
-                item.name.toUpperCase().charAt(0) === searchBrand.toUpperCase()
-              ) {
-                return item;
-              } else if (!searchBrand) {
-                return items;
-              }
-            })
-            .filter((item) => {
-              if (
-                searchName &&
-                item.name.toUpperCase().includes(searchName.toUpperCase())
-              ) {
-                return item;
-              } else if (!searchName) {
-                return items;
-              }
-            })
-            .map((item) => (
-              <CardList
-                item={item}
-                key={item.id}
-                addCart={addCart}
-                click={click}
-              />
+            {filteredItems.map((item) => (
+                <CardList item={item} key={item.id} addCart={() => addCart(item)} />
             ))}
-        </main>
+          </main>
 
         <div class="right-side">
           <AsideLabecommerce

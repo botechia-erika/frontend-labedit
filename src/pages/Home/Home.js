@@ -16,7 +16,7 @@ const [goTo, setGoTo] = useState(['goToLabeEcommerce', 'goToLabeBooks', 'goToLab
   const navigate = useNavigate()
   return (
 <>
-<Heading minH={'20vh'} pt={'50px'}>
+<Heading minH={'20vh'} pt={'150px'} textAlign={'center'}>
     <h2>LabeHome</h2>
 </Heading>
 

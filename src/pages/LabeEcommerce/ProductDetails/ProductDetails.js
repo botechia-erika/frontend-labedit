@@ -49,29 +49,9 @@ const orderPrice2 = () => {
 };
   return (
 
-    <CtnLabeEcommerce>
+    <DetailsCtn>
+    <h2>FICHA TECNICA</h2>
 
-
-  <div class="parent">
-  <header>
-
-  </header>
-  <div class="left-side">
-
- 
-   </div>
-  <main>
-
-  </main>
-
-  
-  <div class="right-side">
-
-  </div>
-  <footer>
- 
-  </footer>
-</div>
-    </CtnLabeEcommerce>
+    </DetailsCtn>
   )
 }
