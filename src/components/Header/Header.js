@@ -4,7 +4,11 @@ import { goToHome, goToSignIn, goToSignUp } from '../../router/coordinator';
 import { useNavigate } from "react-router-dom";
 import {Button} from '@chakra-ui/react'
 export function Header() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const onLogout = ()=>{
+    console.log('logout')
+  }
   return (
     <HeaderCtn>
     <svg
@@ -34,8 +38,10 @@ export function Header() {
     </svg>
     <nav>
     <Button onClick={()=>{goToHome(navigate)}}>Home</Button>
-    <Button onClick={()=>{goToSignIn(navigate)}}>Login</Button>
     <Button onClick={()=>{goToSignUp(navigate)}}>Cadastro</Button>
+    
+    <Button onClick={()=>{goToSignIn(navigate)}}>Login</Button>
+    <Button onLogout={onLogout}>Logout</Button>
     </nav>
 </HeaderCtn>    
   );

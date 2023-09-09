@@ -17,7 +17,7 @@ export function Products() {
   const [trueCheckbox, setTrueCheckbox] = useState(false);
   const [carrinho, setCarrinho] = useState([]);
   const getProducts = () => {
-    fetch('http://localhost:3003/products')
+    fetch('http://localhost:3003/frota')
       .then((response) => response.json())
       .then((data) => setItems(data.result))
       .catch((error) => console.error(error));

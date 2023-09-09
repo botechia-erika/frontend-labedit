@@ -7,6 +7,11 @@ export const goToLabeEcommerce = (navigate)=>{
     navigate('/labe-frota')
 }
 
+export const goToFrotaDetails = (navigate, idDetails)=>{
+    navigate(
+        `/products/${idDetails}`)
+    }
+
 export const goToLabeEdit=(navigate)=>{
     navigate('/sign-in')
 }

@@ -16,7 +16,7 @@ import { CardsCtn } from './styledCardList';
 import { ModalApi } from '../LabeFrota/ModalApi/ModalApi';
 import { goToDetails } from '../../../pages/LabeEcommerce/routes/coordinator2';
 import { useNavigate, useParams, Link } from 'react-router-dom';
-
+import { goToFrotaDetails } from '../../../router/coordinator';
 export function CardList({ item , addCart, click}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [registerName, setRegisterName] = useState('');
@@ -96,7 +96,7 @@ const [id , setId ]= useState(item.id)
 
               <p>R$: {item.price.toFixed(2)}</p>
               <p>{item.description}</p>
-              <Link to={`./details/${id}`}>DETALHES</Link>
+              <Button onClick={()=>{goToFrotaDetails(navigate, item.id)}} item={item} >DETALHES</Button>
               <Button onClick={()=>{addCart(item)}}>+Carrinho</Button>
             </div>
 

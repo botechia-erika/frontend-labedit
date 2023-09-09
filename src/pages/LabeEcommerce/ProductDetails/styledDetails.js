@@ -1,12 +1,20 @@
 import styled from "styled-components"
 export const DetailsCtn = styled.div`
-min-height: 100vh;
-height: 100%;
- width: 100% ;
- padding-top: 110px;
+height: 100vh;
+ width: 1fr ;
+ display: grid;
+ grid-template-rows: 80px auto ;
 
- display: flex ;
-flex-flor: row wrap;
-padding-bottom: 80px ;
-color: black;
+
+ h3{
+    font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; /* 48px */
+letter-spacing: -0.96px;
+ }
+
+ p, span, ul li, label{
+ color: #596780;
+ }
 `
