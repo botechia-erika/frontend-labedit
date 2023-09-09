@@ -20,7 +20,7 @@ console.log(idDetails)
 const [productItem, setProductItem] = useState({description: "", id: "",image_url: "", name: "", price: 0})
 useEffect(() => {
     axios
-      .get(`${URLAPI}/products/${idDetails}`)
+      .get(`${URLAPI}/frota/${idDetails}`)
       .then((response) => {
         setProductItem(response.data.product[0]);
       })
