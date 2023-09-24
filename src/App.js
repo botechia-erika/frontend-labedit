@@ -9,7 +9,7 @@ export default function App() {
   
   <>  <ChakraProvider>
   <GlobalStyled/>
-      <div className="App">
+      <div className="container">
         <GlobalStyled />
         <div className="pAll">
         <AppRouter />

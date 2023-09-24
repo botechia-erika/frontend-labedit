@@ -5,6 +5,7 @@ import { LabeEcommerceRoutes } from '../routes/LabeEcommerceRoutes'
 import {  Box , Flex, Heading, Image, Button, Input, Select} from '@chakra-ui/react'
 import axios from 'axios'
 import { URLAPI } from '../../../constants/URLAPI'
+import { FormPurchase } from '../../../components/LabeEcommerce/FormPurchase/FormPurchase'
 export function ProductDetails() {
   const [cartList, setCartList] = useState([])
 const [click, setClick] = useState('')
@@ -73,43 +74,9 @@ const orderPrice2 = () => {
 
 <Box bg={'whitesmoke'} m={'40px auto'}>
   <h4>PEDIDO DE LOCAÇÃO</h4>
-<form>
-    <label mt={'10px'}>
-    <label htmlFor='inputProduct'>Nome do Produto</label>
-    <Input type='text' name="inputProduct" id="inputProduct"  value={productItem.name} 
-    mt={'20px'} w={'70%'} disabled
-    color={'black'}
-    />
-    </label>
-    <Flex justifyContent={'space-between'} mb={'10px'}>    <label htmlFor='inpuQuantity'>Numero de Meses Contratados</label>
-    <Select w={'30%'}>
-    <option id="inputQuantity" name="inputQuantity" value="Number{0}" selected disabled>0</option>
-    {quantity.map((q)=>
-    <option id="inputQuantity" name="inputQuantity" value="Number{q}">{q}</option>
-    )}
-    </Select>
-    
-    </Flex>
-    <Flex justifyContent={'space-between'} mb={'10px'}>    
-    <label htmlFor='inpuQuantity'>Numero de Parcelas</label>
-    <Select w={'30%'}>
-    <option id="inputQuantity" name="inputQuantity" value="Number{0}" selected disabled>0</option>
-    {quantity.map((q)=>
-    <option id="inputQuantity" name="inputQuantity" value="Number{q}">{q}</option>
-    )}
-    </Select>
-
-    <hr/>
-    </Flex> 
-    <p>    
-    <label htmlFor='inpuQuantity'>Selecione o Numero de Parcelas</label>
-    <Input type='text' name="inputQuantity" id="inputQuantity"   
-    mt={'20px'} w={'10%'} placeholder="ex: 1"
-    color={'black'}
-    />
-    </p> 
-  <Button>ALUGAR</Button>
-</form>
+<FormPurchase
+product={productItem}
+/>
 </Box>
 
         </Box>

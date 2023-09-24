@@ -1,16 +1,31 @@
-import React from 'react'
-import '../../../assets/css/bootstrap.min.css.map'
+import React , {useState} from 'react'
+import { Input, Box } from '@chakra-ui/react'
 export const CashBalance = () => {
-  return (
-    <div>
-<h2 className="jumbotrom-xl">Movimentos de Conta</h2>
-<form>
-<input type='number' min="0" name="monto" id="monto"/>
 
-<select id="tipoMonto" name="categoria">
-    <option value=""></option>
-</select>
-</form>
-    </div>
+const [finalPrice, setFinalPrice] = useState(0)
+const [totalPaid, setTotalPaid] = useState(0)
+const [newPayment, setNewPayment] = useState(0)
+const calcRest = (a, b)=>{a-b}
+
+  return (
+    <Box p={'40px'} pt={'180px'} >
+<h2>Movimentos de Conta</h2>
+<div>
+   <h3>{finalPrice}</h3>
+
+    <p>Total Pago{totalPaid}</p>
+
+
+
+    <hr/>
+
+    <h3>Novo Pagamento </h3>
+    <Input type="number" name={'newPayment'} id="newPayment" value={newPayment}/>
+
+</div>
+
+
+
+    </Box>
   )
 }

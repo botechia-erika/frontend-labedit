@@ -11,6 +11,10 @@ import { LabeAdmin } from './../pages/LabeAdmin/LabeAdmin';
 
 import  {Products}  from './../pages/LabeEcommerce/Products/Products';
 import { ProductDetails } from "../pages/LabeEcommerce/ProductDetails/ProductDetails";
+import { CashBalance } from "../components/LabeBank/CashBalance/CashBalance";
+
+
+
 export function AppRouter() {
   return (
     <BrowserRouter>
@@ -24,6 +28,7 @@ export function AppRouter() {
         <Route path="/labe-books" element={<LabeBooks />} />
         <Route path="/labe-frota" element={<Products/>} />
         <Route path="/labe-bank" element={<LoginBank/>}/>
+        <Route path="/bank" element={<CashBalance/>}/>
         <Route path="/products/:idDetails" element={<ProductDetails />} />
         <Route path="/labe-admin" element={<LabeAdmin/>}/>
       </Routes>

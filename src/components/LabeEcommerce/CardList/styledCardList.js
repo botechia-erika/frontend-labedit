@@ -14,7 +14,7 @@ h3{
     list-style-type: none;
     display: flex;
     flex-flow: column wrap;
-    width: 340px;
+    width: 250px;
     height: 386px;
     border-radius: 20px;
 background: white;
@@ -28,7 +28,7 @@ padding: 1rem;
 
 
  img  {
-max-height:  120px;
+max-height:  200px;
 justify-self:center;
 align-self: center;
 margin: auto;
@@ -42,9 +42,9 @@ background: white;
 }
 
 button{
-width: 106px;
+width: 86px;
 height: 44px;
-padding: 0px 15px;
+
 justify-content: center;
 align-items: center;
 gap: 8px;
