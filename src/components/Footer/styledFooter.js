@@ -28,6 +28,9 @@ footer img {
     height: 90px;
     margin-top: 40px
 }
+footer p span {
+    color: white;
+}
 
 footer p {
     width: 100%;
@@ -43,5 +46,7 @@ footer p link {
     text-shadow: 2px 2px black;
     ;
 }
+
+
 
 `

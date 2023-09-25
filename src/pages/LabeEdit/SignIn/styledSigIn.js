@@ -1,20 +1,20 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 export const GridHome = styled.div`
-  min-height: 95vh;
+  max-height: 95vh;
   display: grid;
   width: 100%;
   background: #e5e5e5;
-  grid-template-rows: 80px  auto 1fr;
+  grid-template-rows: 20px  auto 1fr;
   grid-template-cols: 1fr;
   padding-bottom: 80px;
-  padding-top: -80px;
+  
 text-align: center;
   .box1 {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin-top: 50px;
+    padding-top: 10px;
   }
   .box1 h2 {
     display: block;
@@ -28,7 +28,7 @@ text-align: center;
     border-radius: 20px;
     border: 2px solid #ECECEC;
     background: #FFF;
-    width: 363px;
+    width: 250px;
     height: 40px;
     margin: 8px;
   }
@@ -40,35 +40,24 @@ text-align: center;
 
   .button1 {
     display: inline-block;
-    width: 365px;
-    padding: 13px 33px;
+    width: 200px;
+    padding: auto;
     border-radius: 27px;
-    background: linear-gradient(90deg, #ff6489 0%, #f9b24e 100%);
+    background: orangered;
     color: white;
-    font-weight: 900;
-  }
-  .link2 {
-    display: inline-block;
-    width: 365px;
-    background: white;
-    text-align: center;
-    border: 1px solid #fe7e02;
-    color: white;
-    border-radius: 27px;
-    background: white;
-    color: #fe7e02;
     font-weight: 900;
     height: 50px;
     line-height: 38px;
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
 
-  .hrule {
-    display: block;
-    max-width: 430px;
-    height: 13px;
-    margin: 8px;
-  }
 
+  .button1:hover{
+    background: white;
+    color: orangered;
+    border: 2px solid orangered;
+  }
   input {
     text-align: center;
   }

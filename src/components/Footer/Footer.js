@@ -7,7 +7,7 @@ export  function Footer() {
 
     
 
-    <p class="copy__footer">&copy; Feito por <a href="http://github.com/botechia-erika">@botechia-erika</a></p>
+    <p> <span className='text-light'>&copy; Feito por</span> <a href="http://github.com/botechia-erika">@botechia-erika</a></p>
 
     </FooterCtn>
   )

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { goToLabeEdit, goToLabeBooks, goToLabeEcommerce, goToLabeBank, goToLabeAdmin } from "../../router/coordinator";
 import labeIcon1 from './../../assets/icons/labeIcon1.png'
 import logo1 from './../../assets/brand/logo1.png'
-import labeIcon3 from './../../assets/icons/labeIcon3.png'
+import icon3Club from './../../assets/icons/icon3Club.png'
 import logo2 from './../../assets/brand/logo2.png'
 import labeAdminIcon from './../../assets/icons/labeAdminIcon.png'
 import { TitleApi } from "./styledHome";
@@ -27,7 +27,7 @@ const [goTo, setGoTo] = useState(['goToLabeEcommerce', 'goToLabeBooks', 'goToLab
 <Flex flexFlow={'row wrap'} justifyContent={'space-around'} alignContent={'center'}
 m={'10px auto'} height={'100%'}>
 <Box w={'250px'} h={'250px'} bg={'black.200'} m={'30px auto'} border={'2px solid black.200'} borderRadius={'22px'}>
-<img src={labeIcon3} alt={"img do icon orangeClub"}  maxW={'80px'} maxH={'80px'} objectFit={"cover"}/>
+<img src={icon3Club} alt={"img do icon orangeClub"}  maxW={'80px'} maxH={'80px'} objectFit={"cover"}/>
 <Button onClick={()=>{goToLabeEcommerce(navigate)}}>OrangeClub</Button>
 </Box>
 

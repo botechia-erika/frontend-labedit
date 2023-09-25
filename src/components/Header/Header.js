@@ -13,7 +13,7 @@ export function Header() {
   }
   return (
     <HeaderCtn>
-     <Flex bg={' #434343'}>
+     <Flex bg={'#434343'}>
       <Image src={logoBrand} alt={"logo orange car"} w={'75px'} height={'65px'} borderRadius={'15px'}/>
      </Flex>
     <nav>
