@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Box, Input, Flex, Select } from "@chakra-ui/react";
-
+import { Box, Input, Flex, Select, Heading } from "@chakra-ui/react";
+import { Step1 } from "./Step1";
+import { Step2 } from "./Step2";
+import { Step3 } from "./Step3";
 export function FormPurchase({product}) {
 
   const [purchase, setPurchase] = useState({
@@ -23,7 +25,7 @@ export function FormPurchase({product}) {
     inputPassword: "",
     inputNickname: "",
     inputAvatar:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuZjcr6ptSjN0gYZ5MfT30t3MW4kw34Khi5Q&usqp=CAU",
+      "https://i.postimg.cc/0jnWNmXX/orangeavatar.png",
     inputRole: "Buyer",
     /* dados do produto */
     inputProductId:"",
@@ -35,147 +37,36 @@ export function FormPurchase({product}) {
       <Box w={"80%"}>
         <form>
           {viewForm === 1 ? (
-            <Box>
-              <h2>Dados do Usuario</h2>
-              <Box p={'4'}>
-                 <label htmlFor="inputCpfCnpj">
-                  CPF ou CNPJ do cliente
-                 </label>
-                  <Input 
-                  mt={'10px'}
-                  pattern="/(^\d{3}\.\d{3}\.\d{3}\-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$)/"
-                  type="text"
-                  name={"inputCpfCnpj"}
-                  id="inputCpfCnpj"
-                  value={form.inputCpfCnpj}
-                  placeholder={"ex: 333.219.842-x"}
-                  onChange={(e) => {
-                    setForm({ ...form, inputCpfCnpj: e.target.value });
-                  }}
-                />
-              </Box>
-              <p>
-                <Input
-                  type="text"
-                  name={"inputName"}
-                  id="inputName"
-                  value={form.inputName}
-                  placeholder={"nome de cadastro"}
-                  onChange={(e) => {
-                    setForm({ ...form, inputName: e.target.value });
-                  }}
-                />
-              </p>
-              <p>
-                <Input
-                  type="text"
-                  name={"inputNickname"}
-                  id="inputNickname"
-                  value={form.inputNickname}
-                  placeholder={"pepito-luiz"}
-                  onChange={(e) => {
-                    setForm({ ...form, inputNickname: e.target.value });
-                  }}
-                />
-              </p>
-              <p>
-                <Input
-                  type="text"
-                  name={"inputName"}
-                  id="inputName"
-                  value={form.inputEmail}
-                  placeholder={"pepito@mail.com"}
-                  onChange={(e) => {
-                    setForm({ ...form, inputEmail: e.target.value });
-                  }}
-                />
-              </p>
-              <p>
-                <Input
-                  type="text"
-                  name={"inputPassword"}
-                  id="inputPassword"
-                  value={form.inputPassword}
-                  placeholder={"senha"}
-                  onChange={(e) => {
-                    setForm({ ...form, inputPassword: e.target.value });
-                  }}
-                />
-              </p>
-              <p>
-                <Input
-                  type="text"
-                  name={"confirmPassword"}
-                  id="confirmPassword"
-                  value={confirmPassword}
-                  placeholder={"confirmar senha"}
-                  onChange={(e) => {
-                    setConfirmPassword(e.target.value);
-                  }}
-                />
-              </p>
-              <button
-                onClick={() => {
-                  setViewForm(2);
-                }}
-              >
-                Proximo Passo
-              </button>
-            </Box>
+           <Step1
+           form={form}
+           setForm={setForm}
+           viewForm={viewForm}
+           setViewForm={setViewForm}
+           confirmPassword={confirmPassword}
+           />
           ) : viewForm === 2 ? (
-            <Box>
-              <h2>Dados do Carro</h2>
-<p>{product.name}</p>
-<p>Código do Produto: {product.id}</p>
-<Input type="number" min={1} max={12} 
-value={form.quantity} 
-placeholder="Quantidade de Meses em NUMERO 'ex:' 9"
-onChange={(e)=>setForm(...form,  quantity(e.target.value))}/>
-<button onClick={() => {
-                  setViewForm(1);
-                }}
-              >
-                 Passo Anterior
-              </button>
-<button onClick={() => {
-                  setViewForm(3);
-                }}
-              >
-                Proximo Passo
-              </button>
-            </Box>
+<Step2
+ setForm={setForm} 
+ form={form}
+ setViewForm={setViewForm}
+ viewForm={viewForm}
+ product={product}
+/>
           ) : viewForm === 3 ? (
-            <div>
-              <h3>Dados de Pagamento</h3>
-              <p>{calcFinalPrice(product, purchase)}</p>
-              <p>
-                <Input
-                  type="text"
-                  name={"inputName"}
-                  id="inputName"
-                  value={form.inputName}
-                  placeholder={"nome de cadastro"}
-                  onChange={(e) => {
-                    setForm({ ...form, inputName: e.target.value });
-                  }}
-                />
-              </p>
-              <button onClick={() => {
-                  setViewForm(2);
-                }}
-              >
-                 Passo Anterior
-              </button>
-              <button
-                onClick={() => {
-                  setViewForm(4);
-                }}
-              >
-                Proximo Passo
-              </button>
-            </div>
+           <Step3
+           form={form}
+           setForm={setForm} 
+           product={product}
+           purchase={purchase} 
+           setViewForm={setViewForm}
+           viewForm={viewForm}
+           calcFinalPrice={calcFinalPrice}
+           />
           ) : (
-            <>
+            <Box>
+               <Heading>
+                <h2>Check-In do Produto</h2>
+               </Heading>
             <button onClick={() => {
                   setViewForm(3);
                 }}
@@ -189,7 +80,7 @@ onChange={(e)=>setForm(...form,  quantity(e.target.value))}/>
             >
               Proximo Passo
             </button>
-          </>
+          </Box>
           )}
         </form>
       </Box>

@@ -61,7 +61,7 @@ const {idDetails} = useParams()
 const [itemDetails, setItemDetails]= useState(item.id) 
 const [id , setId ]= useState(item.id)
   return (
-    <CardsCtn>
+    <CardsCtn className='box'>
 
       <Modal isOpen={isOpen} onClose={onClose}>
  <ModalContent>

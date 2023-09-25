@@ -8,6 +8,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 :root{
     --light-default: #FFFFFF;
     --principal-orange: #4618AC;
+    --orange-light: #FF6347;
     --orange-default: #4618AC;
     --orange-rose: #FF6A51;
     --gray-hf: #434343;

@@ -71,6 +71,16 @@ html {
   list-style-type: none;
   }
   
+
+  li img{
+    position: relative;
+  padding: 8px 16px 16px;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border .3s ease;
+  }
   .right-side {
     grid-area: right;
   }

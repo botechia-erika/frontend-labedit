@@ -2,20 +2,23 @@
   list-style-type: none;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
-.App {
+body {
   font-family: sans-serif;
   text-align: center;
 
   min-height: 100vh;
   height: 100%;
+  background-color: #3C3C3C;
 }
 
-div{
-  background: white;
+.text-shadow-drop-center {
+	-webkit-animation: text-shadow-drop-center 0.6s both;
+	        animation: text-shadow-drop-center 0.6s both;
 }
 
 .pAll{
-  padding-top: 25px;
+  padding-top: 60px;
+ 
 }
 
 button{

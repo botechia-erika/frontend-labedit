@@ -20,15 +20,15 @@ const changeContent = (formType, titleType )=>{
 
   return (
 
-    <AdminCtn>
-    <header>
-	<h2>HEADER</h2>
+    <AdminCtn className='container'>
+    <header className='row p-4'>
+	<h2 className='jumbotron-xl'>HEADER</h2>
     </header>
-    <main>
-        <aside>
+    <main className='row d-flex'>
+        <aside className='col-12 col-md-4 col-lg-3'>
 	<p>aside</p>
 	</aside>
-	<section><h2>Formulario para {titleType}</h2>
+	<section className='col-12 col-md-7 col-lg-7'><h2>Formulario para {titleType}</h2>
   <form action="" method='post'>
        <p>
             <label for="brandInput">Nome da Marca: </label>

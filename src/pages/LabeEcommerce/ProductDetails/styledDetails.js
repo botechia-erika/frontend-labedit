@@ -1,9 +1,10 @@
 import styled from "styled-components"
 export const DetailsCtn = styled.div`
+padding-top: 80px;
 height: 100vh;
  width: 1fr ;
  display: grid;
- grid-template-rows: 80px auto ;
+ grid-template-rows: 60px auto 60px;
 
 
  h3{
