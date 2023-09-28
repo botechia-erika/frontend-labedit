@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { CtnLabeEcommerce } from './styledLabeEcommerce';
-import { CardList } from '../../../components/LabeEcommerce/CardList/CardList';
-import { AsideCart } from '../../../components/LabeEcommerce/LabeFrota/AsideCart/AsideCart';
-import { AsideLabecommerce } from '../../../components/LabeEcommerce/AsideLabecommerce/AsideLabecommerce';
-import { Select } from '@chakra-ui/react';
-import { SubNavbar1 } from '../routes/styledLabecommerceRoutes';
-import { LabeEcommerceRoutes } from '../routes/LabeEcommerceRoutes';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { CtnLabeEcommerce } from "./styledLabeEcommerce";
+import { CardList } from "../../../components/LabeEcommerce/CardList/CardList";
+import { AsideCart } from "../../../components/LabeEcommerce/LabeFrota/AsideCart/AsideCart";
+import { AsideLabecommerce } from "../../../components/LabeEcommerce/AsideLabecommerce/AsideLabecommerce";
+import { Select } from "@chakra-ui/react";
+import { SubNavbar1 } from "../routes/styledLabecommerceRoutes";
+import { LabeEcommerceRoutes } from "../routes/LabeEcommerceRoutes";
+import { CartItem } from "../../../components/LabeEcommerce/CartItem/CartItem";
 
 export function Products() {
   const [cartList, setCartList] = useState([]);
-  const [click, setClick] = useState('');
+  const [click, setClick] = useState("");
   const [items, setItems] = useState([]);
-  const [searchName, setSearchName] = useState('');
-  const [searchBrand, setSearchBrand] = useState('');
+  const [searchName, setSearchName] = useState("");
+  const [searchBrand, setSearchBrand] = useState("");
   const [trueCheckbox, setTrueCheckbox] = useState(false);
   const [carrinho, setCarrinho] = useState([]);
   const getProducts = () => {
-    fetch('http://localhost:3003/frota')
+    fetch("http://localhost:3003/frota")
       .then((response) => response.json())
       .then((data) => setItems(data.result))
       .catch((error) => console.error(error));
@@ -66,17 +67,21 @@ export function Products() {
     setItems([...items].sort((a, b) => (a.price > b.price ? 1 : -1)));
   };
   const filteredItems = items
-      .filter((item) =>
-          !searchBrand || item.name.toUpperCase().includes(searchBrand.toUpperCase())
-      )
-      .filter((item) =>
-          !searchName || item.name.toUpperCase().includes(searchName.toUpperCase())
-      );
+    .filter(
+      (item) =>
+        !searchBrand ||
+        item.name.toUpperCase().includes(searchBrand.toUpperCase())
+    )
+    .filter(
+      (item) =>
+        !searchName ||
+        item.name.toUpperCase().includes(searchName.toUpperCase())
+    );
   return (
     <CtnLabeEcommerce>
       <div class="parent">
         <header>
-          <div pt={'20px'}>
+          <div pt={"20px"}>
             <h2>LabeFROTA</h2>
           </div>
         </header>
@@ -84,10 +89,10 @@ export function Products() {
           <AsideCart data={items} setData={setItems} />
         </div>
         <main>
-            {filteredItems.map((item) => (
-                <CardList item={item} key={item.id} addCart={() => addCart(item)} />
-            ))}
-          </main>
+          {filteredItems.map((item) => (
+            <CardList item={item} key={item.id} addCart={() => addCart(item)} />
+          ))}
+        </main>
 
         <div class="right-side">
           <AsideLabecommerce
@@ -103,26 +108,12 @@ export function Products() {
 
           <ul>
             {[...cart].map((cartItem) => (
-              <li key={cartItem.id}>
-                <h2>{cartItem.name}</h2>
-                <p>PERIODO CONTRATO: {cartItem.quantity}</p>
-                <button
-                  onClick={() => {
-                    addCart(cartItem);
-                  }}
-                >
-                  +1 MES
-                </button>
-                <button
-                  onClick={() => {
-                    restCart(cartItem);
-                  }}
-                >
-                  -1 MES
-                </button>
-                <p>{Number(cartItem.price) * Number(cartItem.quantity)}</p>
-                <button>Fechar Pedido</button>
-              </li>
+              <CartItem
+                as="li"
+                cartItem={cartItem}
+                addCart={addCart}
+                restCart={restCart}
+              />
             ))}
           </ul>
         </div>
