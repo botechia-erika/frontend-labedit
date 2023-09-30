@@ -1,80 +1,114 @@
-import React, { useState } from 'react'
-import { ContainerForm, ContainerSignup } from './styledSignUp'
-import { useForm } from '../../../hooks/useForm'
-import { Input, Button, Box } from '@chakra-ui/react'
-export  function SignUp() {
-    const {form , onChangeForm} = useForm({registername: "" , username: "", email: "", password: "", password_password: ""})
-    const enviarCadastro = () => {
-        if (form.password === form.password_password) {
-            console.log(form.registername , form.username, form.email, form.password_password)
-        }
-    }
+import { useState } from "react";
+import axios from "axios";
+import { Button } from "@chakra-ui/react";
+import { ContainerForm , ContainerSignup} from "./styledSignUp";
+export function SignUp(){
+const [passwordConfirm, setPasswordConfirm] = useState("")
+const [data, setData] = useState({
+    inputCpfCnpj: "",
+    inputName: "",
+    inputNickname:"",
+    inputEmail: "",
+    inputPassword: "",
+    inputRole: "Normal",
+    inputAvatar: "https://i.postimg.cc/7hq0n7Mz/orangeavatar2.jpg"
+  });
 
-    return (
-        <ContainerSignup>
-        
-            <ContainerForm onSubmit={enviarCadastro}>
-                {/*em lugar de funcionario agrega registername */}
-                <Box m={'20px auto'}>
-            <h2>Bem-Vindo!</h2>
-            <p>Esse é o labeEdit o projeto de redes sociais da Labenu</p>
-        </Box>
-                <Input
-                    id={'registername'}
-                    name={"registername"}
-                    value={form.registername}
-                    onChange={onChangeForm}
-                    placeholder="nome para cadastro"
-                    type='text'
-                    mb={'15px'}
-                />
-                <Input
-                    id={'username'}
-                    name={"username"}
-                    value={form.username}
-                    onChange={onChangeForm}
-                    placeholder="username"
-                    type='text'
-                    required
-                    mb={'15px'}
-                />
-                <Input
-                    id='email'
-                    name="email"
-                    value={form.email}
-                    pattern='/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/'
-                    onChange={onChangeForm}
-                    placeholder="nome@email.com"
-                    type='email'
-                    required
-                    title="o campo devera ser email valido ex: 'user@email.com'"
-                    mb={'15px'}
-                />
-                <Input
-                    name={"password"}
-                    id={"password"}
-                    value={form.password}
-                    onChange={onChangeForm}
-                    placeholder="Crie sua senha"
-                    type='password'
-                    required
-                    mb={'16px'}
-                    title="senha deve ter de 8 a 12 caracteres e conter pelo menos 1 numero, 1 letra maiuscula e 1 caracter especial $*&@#!'"
-                    /* pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#!]{8,12}$/'*/
-                />
-                <Input
-                    id='password_password'
-                    name="password_password"
-                    value={form.password_password}
-                    onChange={onChangeForm}
-                    placeholder="Confirme a senha"
-                    type="password"
-                    required
-                />
-                <Button
-                mt={'30px'}
-                >Cadastrar</Button>
-            </ContainerForm>
-        </ContainerSignup>
-    )
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setData({
+      ...data,
+      [e.target.name]: value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+        inputCpfCnpj: data.inputCpfCnpj,
+      inputName: data.inputName,
+      inputNickname: data.inputNickname,
+      inputEmail: data.inputEmail,
+      inputPassword: data.inputPassword,
+      inputRole: data.inputRole,
+      inputAvatar: data.inputAvatar
+    };
+    axios
+      .post("http://localhost:3003/users", formData)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("server responded");
+        } else if (error.request) {
+          console.log("network error");
+        } else {
+          console.log(error);
+        }
+      });
+  };
+  return (
+    <ContainerSignup>
+      <h1>CADASTRO DE USUARIOS</h1>
+      <ContainerForm onSubmit={handleSubmit}>
+      <label htmlFor="inputCpfCnpj">
+          CPF ou CNPJ
+          <input
+            type="text"
+            name="inputCpfCnpj"
+            value={data.inputCpfCnpj}
+            onChange={handleChange}
+          />
+        </label>
+      <label htmlFor="inputName">
+          Nome de Cadastro
+          <input
+            type="text"
+            name="inputName"
+            value={data.inputName}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="inputNickname">
+          Nickname de Cadastro
+          <input
+            type="text"
+            name="inputNickname"
+            value={data.inputNickname}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="inputEmail">
+          Email de Cadastro
+          <input
+            type="email"
+            name="inputEmail"
+            value={data.inputEmail}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="inputPassword">
+          Senha
+          <input
+            type="password"
+            name="inputPassword"
+            value={data.inputPassword}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="passwordConfirm">
+          Senha
+          <input
+            type="password"
+            name="passwordConfirm"
+            value={passwordConfirm}
+            onChange={(e)=>{setPasswordConfirm(e.target.value)}}
+          />
+        </label>
+        <Button type="submit" bg={'orange.200'}>Login</Button>
+      </ContainerForm>
+    </ContainerSignup>
+  );
 }

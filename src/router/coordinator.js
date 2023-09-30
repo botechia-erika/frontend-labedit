@@ -3,16 +3,19 @@ export const goToHome = (navigate) => {
 };
 
 export const goToLabeEcommerce = (navigate) => {
-  navigate("/labe-frota");
+  navigate("/frota");
 };
 
 export const goToFrotaDetails = (navigate, idDetails) => {
-  navigate(`/products/${idDetails}`);
+  navigate(`/frota/${idDetails}`);
 };
 
-export const goToLabeEdit = (navigate) => {
-  navigate("/sign-in");
+
+
+export const goToLogin = (navigate) => {
+  navigate("/login");
 };
+
 
 export const goToLabeBooks = (navigate) => {
   navigate("/labe-books");
@@ -31,5 +34,5 @@ export const goToSignIn = (navigate) => {
 };
 
 export const goToSignUp = (navigate) => {
-  navigate("/sign-up");
+  navigate("/register");
 };

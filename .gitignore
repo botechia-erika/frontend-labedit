@@ -2,3 +2,4 @@
 .codesandbox
 .vscode
 ./coverage
+./firebase.js

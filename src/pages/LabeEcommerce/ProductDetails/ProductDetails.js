@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { DetailsCtn } from "./styledDetails";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  isOpen,
+  onOpen,
+  onClose,
+} from "@chakra-ui/react";
 import { LabeEcommerceRoutes } from "../routes/LabeEcommerceRoutes";
 import {
   Box,
@@ -10,10 +22,12 @@ import {
   Button,
   Input,
   Select,
+  useDisclosure,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { URLAPI } from "../../../constants/URLAPI";
 import { FormPurchase } from "../../../components/LabeEcommerce/FormPurchase/FormPurchase";
+import { ModalPurchase } from "../../../components/LabeEcommerce/ModalPurchase/ModalPurchase";
 export function ProductDetails() {
   const [cartList, setCartList] = useState([]);
   const [click, setClick] = useState("");
@@ -45,6 +59,7 @@ export function ProductDetails() {
         console.log(error);
       });
   }, []);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   console.log(productItem);
 
@@ -93,12 +108,11 @@ export function ProductDetails() {
 
             <Box bg={"whitesmoke"} m={"40px auto"}>
               <h4>PEDIDO DE LOCAÇÃO</h4>
-              <FormPurchase product={productItem} />
+              <ModalPurchase product={productItem} />
             </Box>
           </Box>
         </Flex>
       </div>
-      <div></div>
     </DetailsCtn>
   );
 }

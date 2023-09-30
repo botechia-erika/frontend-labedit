@@ -1,7 +1,14 @@
 import { Image } from '@chakra-ui/react'
 import icon3Club from './../../../assets/icons/icon3Club.png'
 import { GridHome } from './styledSigIn'
+import { useRequestData } from '../../../hooks/useRequestData';
+import { URLAPI } from '../../../constants/URLAPI';
 export function SignIn() {
+  const path = "users";
+  const url = `${URLAPI}/${path}`;
+  const [users, isLoading, error] = useRequestData(url, []);
+ console.log(users)
+ 
   return (
     <div>
     <GridHome>

@@ -40,18 +40,18 @@ export const AdminCtn = styled.div`
     -webkit-box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
     -moz-box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
     background-color: var(--blanco);
-    padding: 4rem;
+
     border-radius: 1.2rem;
   }
 
   header {
     background-color: var(--azul);
     text-align: center;
+    width: 100%;
   }
 
   header h2 {
-    padding: 1rem 0;
-    margin: auto;
+    width: 100%;
     color: var(--blanco);
     text-align: center;
     text-transform: uppercase;
@@ -150,12 +150,12 @@ export const AdminCtn = styled.div`
   .alerta.success {
   }
 
-  .contenedor {
+  .container {
     width: 90%;
     max-width: 80rem;
     margin: 0 auto;
   }
-  .contenedor-presupuesto {
+  .container-score {
     margin-top: -5rem;
 
     display: flex;
