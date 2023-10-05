@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { CardsCtn } from './styledCardList';
 import { ModalApi } from '../LabeFrota/ModalApi/ModalApi';
-import { goToDetails } from '../../../pages/LabeEcommerce/routes/coordinator2';
+
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { goToFrotaDetails } from '../../../router/coordinator';
 export function CardList({ item , addCart, click}) {

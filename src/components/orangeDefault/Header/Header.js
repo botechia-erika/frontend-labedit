@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { HeaderCtn } from "./styledHeader";
-import { goToHome, goToSignIn, goToSignUp } from '../../router/coordinator';
+import { goToHome, goToSignIn, goToSignUp } from '../../../router/coordinator';
 import { useNavigate } from "react-router-dom";
 import {Button, Flex, Image} from '@chakra-ui/react'
 
-import logoBrand from './../../assets/brand/logoBrand.png'
+import logoBrand from './../../../assets/brand/logoBrand.png'
 export function Header() {
   const navigate = useNavigate();
 

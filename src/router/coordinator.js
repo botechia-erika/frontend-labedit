@@ -1,37 +1,35 @@
-export const goToHome = (navigate)=>{
-    navigate('/')
-}
+export const goToHome = (navigate) => {
+  navigate("/");
+};
 
+export const goToFrota = (navigate) => {
+  navigate("/frota");
+};
 
-export const goToLabeEcommerce = (navigate)=>{
-    navigate('/labe-frota')
-}
+export const goToFrotaDetails = (navigate, idDetails) => {
+  navigate(`/products/${idDetails}`);
+};
 
-export const goToFrotaDetails = (navigate, idDetails)=>{
-    navigate(
-        `/products/${idDetails}`)
-    }
+export const goToLabeEdit = (navigate) => {
+  navigate("/sign-in");
+};
 
-export const goToLabeEdit=(navigate)=>{
-    navigate('/sign-in')
-}
+export const goToLabeBooks = (navigate) => {
+  navigate("/labe-books");
+};
 
-export const goToLabeBooks = (navigate)=>{
-    navigate('/labe-books')
-}
+export const goToAdmin = (navigate) => {
+  navigate("/admin");
+};
 
-export const goToLabeAdmin=(navigate)=>{
-    navigate('/labe-admin')
-}
+export const goToClub = (navigate) => {
+  navigate("/club");
+};
 
-export const goToLabeBank = (navigate)=>{
-    navigate('/labe-bank')
-}
+export const goToSignIn = (navigate) => {
+  navigate("/sign-in");
+};
 
-export const goToSignIn=(navigate)=>{
-    navigate('/sign-in')
-}
-
-export const goToSignUp = (navigate)=>{
-    navigate('/sign-up')
-}
+export const goToSignUp = (navigate) => {
+  navigate("/sign-up");
+};

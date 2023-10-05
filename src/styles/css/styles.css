@@ -1,6 +1,6 @@
-*{
+* {
   list-style-type: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 body {
   font-family: sans-serif;
@@ -8,21 +8,38 @@ body {
 
   min-height: 100vh;
   height: 100%;
-  background-color: #3C3C3C;
+  background-color: #3c3c3c;
 }
 
 .text-shadow-drop-center {
-	-webkit-animation: text-shadow-drop-center 0.6s both;
-	        animation: text-shadow-drop-center 0.6s both;
+  -webkit-animation: text-shadow-drop-center 0.6s both;
+  animation: text-shadow-drop-center 0.6s both;
 }
 
-.pAll{
+.pAll {
   padding-top: 60px;
- 
 }
 
-button{
-  fill: #F88AC5;
-stroke-width: 4px;
-stroke: #FF088D;
+button {
+  fill: #f88ac5;
+  stroke-width: 4px;
+  stroke: #ff088d;
+}
+
+.banner {
+  margin-top: 25px;
+  display: flex;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  align-self: space-around;
+  justify-content: space-around;
+  width: 100%;
+  background-color: rgb(255, 162, 0);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 2px solid palegoldenrod;
+  padding-top: 1rem;
 }

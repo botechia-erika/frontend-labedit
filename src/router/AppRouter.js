@@ -1,38 +1,50 @@
+// import from NPM PACKAGES
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "./../pages/Home/Home";
-import {LoginBank} from './../pages/LabeBank/Login/Login'
-import { SignIn } from "./../pages/LabeEdit/SignIn/SignIn";
-import { SignUp } from "./../pages/LabeEdit/SignUp/SignUp";
-import { PostDetails } from "./../pages/LabeEdit/PostDetails/PostDetails";
-import { Posts } from "./../pages/LabeEdit/Posts/Posts";
-import { Header } from "./../components/Header/Header";
-import { LabeBooks } from './../pages/LabeBooks/LabeBooks';
-import { LabeAdmin } from './../pages/LabeAdmin/LabeAdmin';
+// import PAGES
+import { Home } from "../pages/orangeDefault/Home/Home";
 
-import  {Products}  from './../pages/LabeEcommerce/Products/Products';
-import { ProductDetails } from "../pages/LabeEcommerce/ProductDetails/ProductDetails";
-import { CashBalance } from "../components/LabeBank/CashBalance/CashBalance";
+// import default components
+import { Header } from "./../components/orangeDefault/Header/Header";
+import  {Footer} from "../components/orangeDefault/Footer/Footer";
+// import specific components
 
 
+
+
+
+import { LoginBank } from "./../pages/orangePay/Login/Login";
+import { SignUp } from "./../pages/orangeClub/SignUp/SignUp";
+
+import { Posts } from "./../pages/orangeClub/Posts/Posts";
+
+
+import { LabeAdmin } from "./../pages/orangeAdmin/LabeAdmin";
+
+import { ProductDetails } from "./../pages/orangeShop/ProductDetails/ProductDetails";
+import { Products } from "../pages/orangeShop/Products/Products";
+import { CashBalance } from "../components/orangePay/CashBalance/CashBalance";
+import Login from "../pages/orangeAuth/Login";
 
 export function AppRouter() {
-  return (
+  return (<>
     <BrowserRouter>
       <Header />
       <div className="pAll">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/posts" element={<Posts/>} />
-        <Route path="/labe-books" element={<LabeBooks />} />
-        <Route path="/labe-frota" element={<Products/>} />
-        <Route path="/labe-bank" element={<LoginBank/>}/>
-        <Route path="/bank" element={<CashBalance/>}/>
-        <Route path="/products/:idDetails" element={<ProductDetails />} />
-        <Route path="/labe-admin" element={<LabeAdmin/>}/>
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/posts" element={<Posts />} />
+
+          <Route path="/frota" element={<Products />} />
+          <Route path="/bank" element={<LoginBank />} />
+          <Route path="/club" element={<CashBalance />} />
+          <Route path="/products/:idDetails" element={<ProductDetails />} />
+          <Route path="/admin" element={<LabeAdmin />} />
+        </Routes>
       </div>
     </BrowserRouter>
+      <Footer/>
+  </>
   );
 }

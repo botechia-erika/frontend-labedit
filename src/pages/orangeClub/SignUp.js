@@ -1,6 +1,6 @@
 import React from 'react'
 import { LabeEditCtn } from './styledLabeEdit'
-export function LabeEdit() {
+export function SignUp() {
   return (
     <LabeEditCtn>
       <h2>Labe-Eddit</h2>

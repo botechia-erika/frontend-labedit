@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CtnLabeEcommerce } from './styledLabeEcommerce';
-import { CardList } from '../../../components/LabeEcommerce/CardList/CardList';
-import { AsideCart } from '../../../components/LabeEcommerce/LabeFrota/AsideCart/AsideCart';
-import { AsideLabecommerce } from '../../../components/LabeEcommerce/AsideLabecommerce/AsideLabecommerce';
+
+import { AsideLabecommerce } from '../../../components/orangeShop/AsideLabecommerce/AsideLabecommerce';
 import { Select } from '@chakra-ui/react';
-import { SubNavbar1 } from '../routes/styledLabecommerceRoutes';
-import { LabeEcommerceRoutes } from '../routes/LabeEcommerceRoutes';
+
 
 export function Products() {
   const [cartList, setCartList] = useState([]);
