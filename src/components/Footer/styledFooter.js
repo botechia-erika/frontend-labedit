@@ -4,7 +4,7 @@ export const FooterCtn = styled.footer`
 
 
     position: fixed; 
-    top: 95vh;
+    top: 90vh;
     display: flex;
     flex-flow: row wrap;
     width: 100%;
@@ -22,7 +22,14 @@ export const FooterCtn = styled.footer`
     -o-border-radius: 25px;
     justify-content: space-around;
 
-
+ul{
+    display: flex;
+    flex-flow: row wrap;
+    align-self: flex-start;
+    font-size: 1.81rem;
+    justify-content: space-around;
+    padding-top: 29px;
+}
 footer img {
     width: 90px;
     height: 90px;
@@ -42,8 +49,9 @@ footer p {
     box-shadow: 11.4px 1.3px 0.9px rgba(22, 70, 1, 0.73);
 }
 
-footer p link {
+footer ul li i{
     text-shadow: 2px 2px black;
+    margin: auto 1rem;
     ;
 }
 
