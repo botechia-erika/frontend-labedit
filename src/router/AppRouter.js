@@ -3,7 +3,7 @@ import { LoginBank } from "./../pages/LabeBank/Login/Login";
 import { SignIn } from "./../pages/LabeEdit/SignIn/SignIn";
 import { SignUp } from "./../pages/LabeEdit/SignUp/SignUp";
 import { PostDetails } from "./../pages/LabeEdit/PostDetails/PostDetails";
-import { Posts } from "./../pages/LabeEdit/Posts/Posts";
+import { NewPost } from "./../pages/OrangeClub/NewPost/NewPost";
 import { Header } from "./../components/Header/Header";
 import { LabeBooks } from "./../pages/LabeBooks/LabeBooks";
 
@@ -22,7 +22,7 @@ export function AppRouter() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/register" element={<SignUp />} />
-          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts" element={<NewPost />} />
           <Route path="/labe-books" element={<LabeBooks />} />
           <Route path="/frota" element={<Products />} />
           <Route path="/labe-bank" element={<LoginBank />} />

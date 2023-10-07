@@ -39,7 +39,7 @@ m={'10px auto'} height={'100%'}>
 
 <Box w={'250px'} h={'250px'} bg={'black.200'} m={'30px auto'} border={'2px solid black.200'} borderRadius={'22px'}>
 <img src={labeAdminIcon} alt={"img do icon labe-ecommerce"} maxW={'80px'} maxH={'80px'} objectFit={"cover"}/>
-<Button onClick={()=>{goToLabeEcommerce(navigate)}}>LabeFROTA</Button>
+<Button onClick={()=>{goToEnterprise(navigate)}}>Enterprise</Button>
 </Box>
 
 

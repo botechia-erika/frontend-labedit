@@ -18,19 +18,19 @@ export const goToLogin = (navigate) => {
 
 
 export const goToLabeBooks = (navigate) => {
-  navigate("/labe-books");
+  navigate("/books");
 };
 
 export const goToLabeAdmin = (navigate) => {
-  navigate("/payment");
+  navigate("/admin");
 };
 
 export const goToLabeBank = (navigate) => {
-  navigate("/labe-bank");
+  navigate("/bank");
 };
 
 export const goToSignIn = (navigate) => {
-  navigate("/sign-in");
+  navigate("/login");
 };
 
 export const goToSignUp = (navigate) => {

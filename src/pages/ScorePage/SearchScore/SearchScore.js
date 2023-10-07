@@ -3,6 +3,18 @@ import { Input } from "@chakra-ui/react";
 export function SearchScore() {
   const [accountInput, setAccountInput] = useState("");
 
+  const getProducts = () => {
+    fetch("http://localhost:3003/frota")
+      .then((response) => response.json())
+      .then((data) => setItems(data.result))
+      .catch((error) => console.error(error));
+  };
+  const { idDetails } = useParams();
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   const [emailInput, setEmailInput] = useState("");
   return (
     <form action="" method="post" className="formulario">
