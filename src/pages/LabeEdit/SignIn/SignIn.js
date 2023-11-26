@@ -31,8 +31,8 @@ export function SignIn() {
             fill="#FE7E02"
           />
         </svg>
-        <h2>LabEddit</h2>
-        <p>O projeto de rede social da Labenu</p>
+        <h2>LabCLUB</h2>
+        <p>O projeto de club de vantagems para clientes CADASTRADOS feito por alunos</p>
         <div className="boxInput">
           <input />
           <input />
