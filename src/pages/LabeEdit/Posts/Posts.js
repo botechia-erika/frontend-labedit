@@ -1,9 +1,46 @@
 import React from 'react'
+import { PostsContainer } from './styled.Posts'
+import {useRequestData} from './../../../hooks/useRequestData'
+import {LoaderComponent} from './../../../components/LoaderComponent/LoaderComponent'
 
+import {URLAPI} from './../../../constants/URLAPI'
 export function Posts() {
+
+  const [posts, isLoading, error] = useRequestData(`${URLAPI}posts`, [])
+
+  console.log(posts)
+
+  const renderPosts = posts.map(post => {
+    return <li className="postBox" key={post.id}>
+      <div className="postBox-A">
+        <p>Postado por:{post['creator_id']}</p>
+      </div>
+      <div className="postBox-B">
+        <p>{post.content}</p>
+      </div>
+      <div className="postBox-C"></div>
+     </li>
+  })
   return (
-    <div>
-        Posts     
-    </div>
+    <PostsContainer>
+      <div></div>
+      <section>
+        <form>
+        <input type="text" className="inputFeed"/>
+        <button>Postar</button>
+        </form>
+
+
+        <ul>		{isLoading && <LoaderComponent/>} 
+		{!isLoading && error && <p>Ocorreu um erro</p>}
+		{!isLoading && posts && posts.length > 0 && <ul>{renderPosts}</ul>}
+		{!isLoading && posts && posts.length === 0 && <p>Lista vazia</p>}
+
+        </ul>
+
+
+      </section>
+      <div></div>     
+    </PostsContainer>
   )
 }

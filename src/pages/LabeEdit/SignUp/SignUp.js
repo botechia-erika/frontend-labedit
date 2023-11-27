@@ -1,14 +1,55 @@
-import React from 'react'
-import { GridSignUp } from './styled.SignUp'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { GridSignUp } from './styled.SignUp';
+import { UserMessage } from '../../../components/Message/UserMesssage/UserMessage';
+
 export function SignUp() {
+  const [formState, setFormState] = useState({
+    inputCpfCnpj: '',
+    inputName: '',
+    inputNickname: '',
+    inputEmail: '',
+    inputPassword: '',
+    inputRole: 'Normal',
+    inputAvatar: '',
+  });
+
+  const { inputCpfCnpj, inputName, inputNickname, inputEmail, inputPassword, inputRole, inputAvatar } = formState;
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const getAllUsers = async () => {
+      try {
+        const response = await axios.get('http://localhost:3004/users');
+        setUsers(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getAllUsers();
+  }, []);
+
+  const onInputChange = ({ target }) => {
+    const { name, value } = target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const filteredUsers = users.filter((user) => user.nickname.toUpperCase() === inputNickname.toUpperCase().trim());
+  const filteredEmail = users.filter((user) => user.email.toUpperCase() === inputEmail.toUpperCase().trim());
+  const filteredId = users.filter((user) => user.id.toUpperCase() === inputCpfCnpj.toUpperCase().trim());
   return (
     <div>
-    <GridSignUp>
-    <div></div>
-    <div>
-      
-      <div className="box1">
-      <svg
+      <GridSignUp>
+        <div></div>
+        <div>
+          <div className="box1">
+
+            <svg
           width="84"
           height="85"
           viewBox="0 0 84 85"
@@ -31,26 +72,79 @@ export function SignUp() {
             d="M1.27212e-06 41.9948C-0.00135632 36.4796 1.0839 31.0182 3.19386 25.9225C5.30382 20.8268 8.39708 16.1968 12.2969 12.297C16.1968 8.39711 20.8268 5.30385 25.9225 3.19389C31.0182 1.08394 36.4796 -0.00135632 41.9948 1.27209e-06V41.9948H1.27212e-06Z"
             fill="#FE7E02"
           />
-        </svg>
-        <h2>LabCLUB</h2>
-        <p>O CLUB para nossos usuarios cadastrados ,<strong>GRATUITO!</strong></p>
-        <div className="boxInput">
-          <input />
-          <input />
-          <input />
-          <input />
-          <input />
-          <input />
+            </svg>
+            <h2>LabCLUB</h2>
+            <p>
+              O CLUB para nossos usuarios cadastrados, <strong>GRATUITO!</strong>
+            </p>
+            <div className="boxInput">
+              {/* Input fields */}
+              <input
+                type="text"
+                id="inputCpfCnpj"
+                name="inputCpfCnpj"
+                value={inputCpfCnpj}
+                onChange={onInputChange}
+                required
+                title="CPF ou CNPJ"
+                placeholder="CPF ou CNPJ"
+              />
+              <input
+                type="text"
+                id="inputName"
+                name="inputName"
+                value={inputName}
+                onChange={onInputChange}
+                required
+                title="Nome para Cadastro"
+                placeholder="Nome do Cadastro"
+              />
+              <input
+                type="text"
+                id="inputNickname"
+                name="inputNickname"
+                value={inputNickname}
+                onChange={onInputChange}
+                placeholder="Nome do Usuario"
+                required
+              />
+              {filteredUsers.map((user) => (
+                <UserMessage key={user.id} user={user} />
+              ))}
+                                     {filteredEmail.map((user) => (
+                <UserMessage key={user.id} user={user} />
+              ))}
+                      {filteredId.map((user) => (
+                <UserMessage key={user.id} user={user} />
+              ))}
+              <input
+                type="email"
+                id="inputEmail"
+                name="inputEmail"
+                value={inputEmail}
+                onChange={onInputChange}
+                placeholder="Email do usuario"
+                required
+              />
+
+              <input
+                type="text"
+                id="inputPassword"
+                name="inputPassword"
+                value={inputPassword}
+                placeholder="Senha"
+                onChange={onInputChange}
+                required
+              />
+            </div>
+            <div className="boxButton">
+              <button className="button1">CONTINUAR</button>
+              <hr className="hrule" />
+            </div>
+          </div>
         </div>
-        <div className="boxButton">
-          <button className="button1">CONTINUAR</button>
-          <hr className="hrule" />
-        
-        </div>
-      </div>
+        <div></div>
+      </GridSignUp>
     </div>
-    <div></div>
-  </GridSignUp>
-    </div>
-  )
+  );
 }

@@ -4,8 +4,10 @@ export function LabeBooks() {
   return (
     <div>
      <CtnLabeBooks>
-     <h2>Labe-Books</h2>
-
+      <div></div>
+    <div> <h2>Labe-Books</h2>
+    </div>
+    <div></div>
      </CtnLabeBooks>
     </div>
   )

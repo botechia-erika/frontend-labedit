@@ -33,6 +33,7 @@ export const GridSignUp = styled.div`
     width: 243px;
     height: 40px;
     margin: 8px;
+    text-align: center;
   }
 
   .boxInput {

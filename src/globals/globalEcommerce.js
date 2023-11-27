@@ -7,14 +7,14 @@ export const EcommerceProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
 
   const getProducts = () => {
-    fetch('http://localhost:3003/products')
+    fetch('http://localhost:3004/products')
       .then(response => response.json())
       .then(data => setProducts(data.result))
       .catch(error => console.error(error));
   };
 
   const getUsers = () => {
-    fetch('http://localhost:3003/users')
+    fetch('http://localhost:3004/users')
       .then(response => response.json())
       .then(data => setUsers(data.result))
       .catch(error => console.error(error));

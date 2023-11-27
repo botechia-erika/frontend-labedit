@@ -17,8 +17,8 @@ export function AppRouter() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/posts" element={<Posts/>} />
-        <Route path="/labe-books" element={<LabeBooks />} />
-        <Route path="/labe-frota" element={<Products/>} />
+        <Route path="/projects" element={<LabeBooks />} />
+        <Route path="/courses" element={<Products/>} />
         <Route path="/details/:id" element={<PostDetails />} />
       </Routes>
       </div>
