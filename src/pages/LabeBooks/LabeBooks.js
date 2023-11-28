@@ -1,14 +1,15 @@
-import React from 'react'
-import { CtnLabeBooks } from './styledLabeBooks'
+import { CtnLabeBooks } from './styled.LabeBooks'
+import { Banner } from '../../components/LabeBooks/Banner/Banner'
+import { FormProject } from './../../components/LabeBooks/FormProject/FormProject'
+
+
 export function LabeBooks() {
+
   return (
-    <div>
-     <CtnLabeBooks>
-      <div></div>
-    <div> <h2>Labe-Books</h2>
-    </div>
-    <div></div>
-     </CtnLabeBooks>
-    </div>
+    <CtnLabeBooks>
+<Banner/>
+<FormProject/>
+ </CtnLabeBooks>
+
   )
 }
