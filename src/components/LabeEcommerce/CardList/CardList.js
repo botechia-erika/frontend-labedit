@@ -33,7 +33,7 @@ const [email, setEmail] = useState('')
       passwordConfirm,
     };
     try {
-      const response = await fetch('http://localhost:3004/users', {
+      const response = await fetch('http://localhost:3003/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const [email, setEmail] = useState('')
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <form onSubmit={handleSubmit} method="POST" action="http://localhost:3004/users">
+            <form onSubmit={handleSubmit} method="POST" action="http://localhost:3003/users">
               <Input
                 type="text"
                 placeholder="Nome para Cadastrado"

@@ -1,7 +1,7 @@
 import { BannerContainer } from "./styled.Banner";
 import bannerImg from './../../../assets/labeBooks/bannerImg.svg'
-
-export function Banner(){
+import {ButtonLabeBook} from './../ButtonLabeBook/ButtonLabeBook'
+export function Banner({handleProjects, handleCardsRegister}){
   return(
     <BannerContainer>
      <div className='bannerFlex'>
@@ -10,6 +10,9 @@ export function Banner(){
       </div>
       <div  className='bannerFlex__div'>
       <h2>labeBooks</h2>
+      <ButtonLabeBook onClick={handleProjects}> VER PROJETOS </ButtonLabeBook> 
+      <ButtonLabeBook onClick={handleCardsRegister}> CADASTRAR CARD</ButtonLabeBook> 
+
       </div>
       </div>
     </BannerContainer>

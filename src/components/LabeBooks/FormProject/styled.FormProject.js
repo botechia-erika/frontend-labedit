@@ -13,4 +13,13 @@ padding: 1.3rem;
 h2{
 font-size: 1.4rem;
 }
+
+select, option {
+  background-color: #FFF;
+  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.06);
+  width: 90%;
+  border: none;
+  font-size: 24px;
+  border-radius: 22px;
+}
 `

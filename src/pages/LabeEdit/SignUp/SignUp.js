@@ -21,7 +21,7 @@ export function SignUp() {
   useEffect(() => {
     const getAllUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:3004/users');
+        const response = await axios.get('http://localhost:3003/users');
         setUsers(response.data);
       } catch (error) {
         console.error(error);
@@ -65,7 +65,7 @@ export function SignUp() {
             fill="#A8BBC6"
           />
           <path
-            d="M41.9948 41.9948C41.9935 36.4788 43.0791 31.0165 45.1897 25.9201C47.3004 20.8238 50.3945 16.1933 54.2955 12.2933C58.1964 8.39334 62.8276 5.30028 67.9245 3.19093C73.0214 1.08158 78.4839 -0.00271036 84 5.0877e-06V41.9948H41.9948Z"
+            d="M41.9948 41.9948C41.9935 36.4788 43.0791 31.0165 45.1897 25.9201C47.3003 20.8238 50.3945 16.1933 54.2955 12.2933C58.1964 8.39334 62.8276 5.30028 67.9245 3.19093C73.0214 1.08158 78.4839 -0.00271036 84 5.0877e-06V41.9948H41.9948Z"
             fill="#45525B"
           />
           <path

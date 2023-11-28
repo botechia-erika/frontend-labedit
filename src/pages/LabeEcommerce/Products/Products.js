@@ -10,7 +10,7 @@ export function Products() {
   const [ items, setItems] = useState([])
   const [searchName, setSearchName] = useState("")
   const getProducts = () => {
-    fetch('http://localhost:3004/courses')
+    fetch('http://localhost:3003/courses')
       .then(response => response.json())
       .then(data => setItems(data.result))
       .catch(error => console.error(error));

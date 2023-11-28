@@ -6,9 +6,10 @@ import "./styles.css";
 import { EcommerceProvider } from "./globals/globalEcommerce";
 
 export default function App() {
-  return (<EcommerceProvider>
-    <ChakraProvider>
-  <>
+  return (
+    <> <EcommerceProvider>
+      <ChakraProvider>
+
   <GlobalStyled/>
       <div className="App">
         <GlobalStyled />
@@ -17,8 +18,8 @@ export default function App() {
         </div>
       </div>
       <Footer/>
-      </>
+    
     </ChakraProvider>
-    </EcommerceProvider>
+    </EcommerceProvider>  </>
   );
 }
