@@ -20,3 +20,7 @@ export const goToLabeEdit=(navigate)=>{
 export const goToLabeBooks = (navigate)=>{
     navigate('/projects')
 }
+
+export const goToCourseDetails = (navigate, idCourse)=>{
+    navigate(`/courses/${idCourse}`)
+}

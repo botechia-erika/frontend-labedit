@@ -10,24 +10,25 @@ const [labeView, setLabeView] = useState(1)
 const [labePage, setLabePage] = useState(<FormProject/>)
 const handleLabeBooksView = (e)=>{
   if(labeView === 1){
-  setLabePage(<FormProject/>)
   setLabeView (2)
 }else if(labeView === 2){
-  setLabePage(<ProjectList/>)
   setLabeView (1)
 }
 }
 
+
+const handleProjects=(e)=>{setLabeView(1)}
+const handleCardsRegister=(e)=>{setLabeView(2)}
   return (
     <CtnLabeBooks>
 <Banner
-handleProjects={(e)=>{setLabeView(1)}}
 
-handleCardsRegister={(e)=>{setLabeView(1)}}  
+handleCardsRegister={handleCardsRegister}
+handleProjects={handleProjects}
 
 />
+{labeView === 2 && <FormProject/> } {labeView === 1 && <ProjectList/>}
 
-<ProjectList/>
  </CtnLabeBooks>
 
   )

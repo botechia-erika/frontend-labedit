@@ -1,8 +1,10 @@
 import { ButtonLabeBookContainer } from "./ButtonLabeBook.styled";
 
-export function ButtonLabeBook ({children}){
+export function ButtonLabeBook ({children, childClick}){
   return(
-    <ButtonLabeBookContainer>
+    <ButtonLabeBookContainer
+    onClick={childClick}
+    >
       {children}
     </ButtonLabeBookContainer>  
   )

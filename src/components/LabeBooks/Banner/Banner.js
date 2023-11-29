@@ -10,8 +10,8 @@ export function Banner({handleProjects, handleCardsRegister}){
       </div>
       <div  className='bannerFlex__div'>
       <h2>labeBooks</h2>
-      <ButtonLabeBook onClick={handleProjects}> VER PROJETOS </ButtonLabeBook> 
-      <ButtonLabeBook onClick={handleCardsRegister}> CADASTRAR CARD</ButtonLabeBook> 
+      <ButtonLabeBook childClick={handleProjects}> VER PROJETOS </ButtonLabeBook> 
+      <ButtonLabeBook childClick={handleCardsRegister}> CADASTRAR CARD</ButtonLabeBook> 
 
       </div>
       </div>

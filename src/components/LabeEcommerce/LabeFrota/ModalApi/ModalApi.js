@@ -10,8 +10,8 @@ import {
   } from '@chakra-ui/react'
 
   export function ModalApi(){
-    return(
-      const { isOpen, onOpen, onClose } = useDisclosure()
+        const { isOpen, onOpen, onClose } = useDisclosure()
+  return(
         <Modal onClose={onClose} isOpen={isOpen} isCentered>
           <ModalOverlay />
           <ModalContent>
