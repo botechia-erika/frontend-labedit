@@ -15,3 +15,16 @@ div{
 .pAll{
   padding-top: 25px;
 }
+
+.redBtn{
+  background-color: brown;
+  color: white;
+  font-weight: bolder;
+}
+
+
+.greenBtn{
+  background-color: rgb(70, 118, 4);
+  color: white;
+  font-weight: bolder;
+}

@@ -25,6 +25,7 @@ img {
 
 .footer {
   display: flex;
+  flex-flow: row wrap;
   flex-flow: space-around;
   align-items: center;
   background: #FFFFFF;
@@ -42,7 +43,28 @@ img {
   margin: 8px auto;
 }
 
-a , button{
+button{
+  display: inline-block;
+  width: 40%;
+  height: 42px;
+
+  font-size: 1rem;
+  color: #333;
+  margin: 10px auto;
+  letter-spacing: .1rem;
+  border: none;
+  border-radius: 22px;
+  outline: none;
+  background: linear-gradient(to right, gold, goldenrod);
+  cursor: pointer;
+  animation: anim 1s 1s backwards;
+  font-size: 20px;
+  padding-top: 7px;
+  padding-right: -1.5px;
+  text-align: center;
+  color: black;
+}
+a{
   display: inline-block;
   width: 42px;
   height: 42px;
@@ -66,6 +88,11 @@ a , button{
 a:hover , button:hover{
   background: orangered;
   color: white;
+}
+.buttonsBox{
+  width: 100%;
+  display: flex; 
+  flex-flow: row wrap;
 }
 
 `

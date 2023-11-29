@@ -20,15 +20,15 @@ const [goTo, setGoTo] = useState(['goToLabeEcommerce', 'goToLabeBooks', 'goToLab
 <Flex flexFlow={'row wrap'} justifyContent={'space-around'} alignContent={'center'} height={'100%'}>
 <Box w={'250px'} h={'250px'} bg={'orange.200'} m={'30px auto'} border={'2px solid orangered'} borderRadius={'22px'}>
 <img src={labeIcon2} alt={"img do icon labe-ecommerce"} w={'80px'} h={'80px'}/>
-<Button onClick={()=>{goToLabeEcommerce(navigate)}}>Cursos</Button>
+<Button onClick={()=>{goToLabeEcommerce(navigate)}}>LabeCURSOS</Button>
 </Box>
 <Box w={'250px'} h={'250px'} bg={'orange.200'} m={'30px auto'} border={'2px solid orangered'} borderRadius={'22px'}>
 <img src={labeIcon3} alt={"img do icon labe-books"} w={'80px'} h={'80px'}/>
-<Button onClick={()=>{goToLabeEdit(navigate)}}>Club</Button>
+<Button onClick={()=>{goToLabeEdit(navigate)}}>LabeCLUB</Button>
 </Box>
 <Box w={'250px'} h={'250px'} bg={'orange.200'} m={'30px auto'} border={'2px solid orangered'} borderRadius={'22px'}>
 <img src={labeIcon1} alt={"img do icon labe-books"} w={'80px'} h={'80px'}/>
-<Button onClick={()=>{goToLabeBooks(navigate)}}>Pojects</Button>
+<Button onClick={()=>{goToLabeBooks(navigate)}}>LabePROJECTS</Button>
 </Box>
 
 </Flex>

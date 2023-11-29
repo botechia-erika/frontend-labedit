@@ -82,25 +82,18 @@ const [idCourse , setIdCourse ]= useState(item.id)
 <div>
 <ModalCloseButton />
           <h2>TELA 2</h2>
-     
         </div>
         )  }    </ModalContent>
- 
       </Modal>
- 
-   
             <div>
               <h3>{item.name}</h3>
-              <p>Alugue Mensal</p>
+              <p>MATERIAL ONLINE & AO VIVO</p>
               <img src={item.image_url} alt={'imagem do produto'} />
-
               <p>R$: {item.price.toFixed(2)}</p>
               <p>{item.description}</p>
               <Button onClick={()=>{goToCourseDetails(navigate, idCourse)}} item={item} >DETALHES</Button>
               <Button onClick={()=>{addCart(item)}}>+Carrinho</Button>
             </div>
-
     </CardsCtn>
   );
 }
-
