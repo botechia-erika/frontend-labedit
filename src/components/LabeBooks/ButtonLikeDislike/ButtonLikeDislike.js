@@ -20,7 +20,7 @@ const ButtonLikeDislike = ({ id, likes, dislikes }) => {
   const handleLike = () => {
     if (!liked) {
       axios
-        .put(`http://localhost:3003/projects/${id}`, { inputLikes: 1 })
+        .put(`http://localhost:3003/projects/${id}`, { inputLike: 1 })
         .then(() => {
           setLiked(true);
           setDisliked(false);
@@ -37,7 +37,7 @@ const ButtonLikeDislike = ({ id, likes, dislikes }) => {
   const handleDislike = () => {
     if (!disliked) {
       axios
-        .put(`http://localhost:3003/projects/${id}`, { inputDislikes: 1 })
+        .put(`http://localhost:3003/projects/${id}`, { inputDislike: 1 })
         .then(() => {
           setLiked(false);
           setDisliked(true);
