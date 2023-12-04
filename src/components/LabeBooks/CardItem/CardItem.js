@@ -27,10 +27,10 @@ export function  CardItem({project}) {
         <div className='footer'>
         <div className={"buttonsBox"}>
 
-          <a href={""} target="_blank">
+          <a href={repo} target="_blank">
           <i className="fa-brands fa-github"></i>
           </a>
-          <a href={""} target="_blank">
+          <a href={deploy} target="_blank">
           <i className="fa-solid fa-globe"></i>
           </a>
           <ButtonLikeDislike id={project.id} likes={likes} dislikes={dislikes}/>

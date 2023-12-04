@@ -2,11 +2,13 @@ import styled from 'styled-components'
 
 export const CardItemContainer = styled.li`
 
-  width: 280px;
+  width: 350px;
   list-style-type: none;
-  display: inline-block;
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
   margin: 30px auto;
-
+  min-height: 550px;
  .header {
   background-color:  #F0F0F0;
   border-radius: 10px 10px 0px 0px;
@@ -14,13 +16,12 @@ export const CardItemContainer = styled.li`
 
 }
 img {
-  width: 180px;
-  border-radius: 50%;
+  width: 90%;
+ 
   position: relative;
   bottom: -10px;
   margin: auto;
-  background: orange;
-  padding: 1rem;
+ 
 }
 
 .footer {
