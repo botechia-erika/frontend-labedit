@@ -1,33 +1,18 @@
-
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { CtnLabeEcommerce } from "./styledLabeEcommerce";
-import { CardList } from "../../../components/LabeEcommerce/CardList/CardList";
-import { AsideCart } from "../../../components/LabeEcommerce/LabeFrota/AsideCart/AsideCart";
-import { AsideLabecommerce } from "../../../components/LabeEcommerce/AsideLabecommerce/AsideLabecommerce";
-import { Select } from "@chakra-ui/react";
-
-import { CartItem } from "../../../components/LabeEcommerce/CartItem/CartItem";
-
+import { useContext, useEffect, useState } from 'react';
+import { ProductsContext } from './../../../commons/context/productsContext';
+import { Input, Container, Heading, Flex } from '@chakra-ui/react';
+import { CardList } from '../../../components/LabeEcommerce/CardList/CardList';
+import { LoaderComponent } from './../../../components/LoaderComponent/LoaderComponent';
+import { ErrorComponent } from './../../../components/ErrorComponent/ErrorComponent';
+import {ContainerLabecommerce} from './styled.Products'
 export function Products() {
-  const [cartList, setCartList] = useState([]);
-  const [click, setClick] = useState("");
-  const [items, setItems] = useState([]);
-  const [searchName, setSearchName] = useState("");
-  const [searchBrand, setSearchBrand] = useState("");
-  const [trueCheckbox, setTrueCheckbox] = useState(false);
-  const [carrinho, setCarrinho] = useState([]);
-  const getProducts = () => {
-    fetch("http://localhost:3003/courses")
-      .then((response) => response.json())
-      .then((data) => setItems(data.result))
-      .catch((error) => console.error(error));
-  };
-  const { idDetails } = useParams();
-
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const {
+    products,
+    courses,
+    isLoadingCourses,
+    isErrorCourses,    searchName,
+    setSearchName,
+  } = useContext(ProductsContext);
 
   const [cart, setCart] = useState([]);
 
@@ -59,66 +44,41 @@ export function Products() {
     }
   };
 
-  const orderPrice = () => {
-    setItems([...items].sort((a, b) => (a.price > b.price ? -1 : 1)));
-  };
 
-  const orderPrice2 = () => {
-    setItems([...items].sort((a, b) => (a.price > b.price ? 1 : -1)));
-  };
-  const filteredItems = items
-    .filter(
-      (item) =>
-        !searchBrand ||
-        item.name.toUpperCase().includes(searchBrand.toUpperCase())
-    )
-    .filter(
-      (item) =>
-        !searchName ||
-        item.name.toUpperCase().includes(searchName.toUpperCase())
-    );
+
   return (
-    <CtnLabeEcommerce>
-      <div class="parent">
-        <header>
-          <div pt={"20px"}>
-            <h2>LabeFROTA</h2>
-          </div>
-        </header>
-        <div class="left-side">
-          <AsideCart data={items} setData={setItems} />
-        </div>
-        <main>
-          {filteredItems.map((item) => (
-            <CardList item={item} key={item.id} addCart={() => addCart(item)} />
-          ))}
-        </main>
+    <ContainerLabecommerce>
+      <Flex direction="column" align="center">
+        <Heading mb={4}>LABE-CURSOS</Heading>
+        <Input
+          name="searchName"
+          id="searchName"
+          value={searchName}
+          onChange={(e) => setSearchName(e.target.value)}
+          placeholder="Search by name"
+          mb={4}
+        />
+      </Flex>
 
-        <div class="right-side">
-          <AsideLabecommerce
-            searchName={(e) => setSearchName(e.target.value)}
-            searchBrand={(e) => setSearchBrand(e.target.value)}
-          />
-          <Select>
-            <option id="b1" onClick={orderPrice}>
-              MAIOR PRECO
-            </option>
-            <option onClick={orderPrice2}>MENOR PRECO</option>
-          </Select>
-
-          <ul>
-            {[...cart].map((cartItem) => (
-              <CartItem
-                as="li"
-                cartItem={cartItem}
-                addCart={addCart}
-                restCart={restCart}
+      <Flex justify="center">
+        {isLoadingCourses ? (
+          <LoaderComponent />
+        ) : isErrorCourses ? (
+          <ErrorComponent />
+        ) : (
+          <Flex wrap="wrap" justify="space-evenly">
+            {products.map((item) => (
+              <CardList
+                item={item}
+                key={item.id}
+                addCart={() => addCart(item)}
               />
             ))}
-          </ul>
-        </div>
-        <footer></footer>
-      </div>
-    </CtnLabeEcommerce>
+          </Flex>
+        )}
+      </Flex>
+    </ContainerLabecommerce>
   );
 }
+
+ 

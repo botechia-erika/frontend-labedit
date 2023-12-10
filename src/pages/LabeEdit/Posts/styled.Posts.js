@@ -38,22 +38,17 @@ ul{
   flex-flow: row wrap;
   justify-content: space-around;
 }
-
-.postBox{
-  display: flex;
-  width: 364px;
-  height: 260px;
-  padding: 9px 10px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-  border-radius: 12px;
-border: 1px solid #E0E0E0;
-background: #FBFBFB;
+.postBox-stats{
+  width: 138px;
+  height: 48px;
 }
-
-
-.postBox-A, .postBox-B{
-  margin: 18px auto;
+.postBox-stats button{
+  width: 46px;
+  height: 48px;
+  border-radius: 12px;
+  background: #EDEDED;
+  border: none;
+  margin: 0 5px;
+  color: gray;
 }
 `

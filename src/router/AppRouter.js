@@ -8,6 +8,7 @@ import { Header } from "./../components/Header/Header";
 import { LabeBooks } from './../pages/LabeBooks/LabeBooks';
 import  {Products}  from '../pages/LabeEcommerce/Products/Products';
 import { ProductDetails } from "../pages/LabeEcommerce/ProductDetails/ProductDetails";
+
 export function AppRouter() {
   return (
     <BrowserRouter>
@@ -21,6 +22,7 @@ export function AppRouter() {
         <Route path="/projects" element={<LabeBooks />} />
         <Route path="/courses" element={<Products/>} />
         <Route path="/courses/:idCourse" element={<ProductDetails />} />
+
       </Routes>
       </div>
     </BrowserRouter>

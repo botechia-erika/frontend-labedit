@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { DetailsCtn } from "./styledDetails";
-
+import {useRequestData} from '../../../hooks/useRequestData'
 import {
   Box,
   Flex,
@@ -35,20 +35,19 @@ export function ProductDetails({item}) {
     name: "",
     price: 0,
   });
-  useEffect(() => {
-    axios
-      .get(`${URLAPI}courses/${idCourse}`)
-      .then((response) => {
-        setProductItem(response.data.result[0]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
-  console.log(productItem);
 
-  function addCart(item) {
+
+const [course, isLoadingCourse, isErrorCourse] = useRequestData(`${URLAPI}courses/${idCourse}`, [course])
+
+const {id, name, imageUrl, description, price } = course
+
+
+
+
+console.log(course)
+
+/*  function addCart(item) {
     const searchAtCart = carrinho.find((cartItem) => {
       cartItem.id === item.id;
     });
@@ -64,41 +63,29 @@ export function ProductDetails({item}) {
   };
   const orderPrice2 = () => {
     setItems([...items].sort((a, b) => (a.price > b.price ? 1 : -1)));
-  };
+  };*/
   return (
     <DetailsCtn>
-      <div>
-        <Flex
-          flexFlow={"row wrap"}
-          justifyContent={"center"}
-          alignSelf={"center"}
-        >
-          <Box w={"40%"} minW={"420px"} minH={"570px"}>
-            <Heading m={"10px auto"} textAlign={"center"}>
-              <h2>{productItem.name}</h2>
-            </Heading>
-            <Image src={productItem.imgUrl} alt={"img do produto"} />
-          </Box>
 
-          <Box w={"40%"} minW={"420px"} minH={"570px"}>
-            <h3>
-              {" "}
-              Ficha Tecnica <br />
-              <hr /> {productItem.name}
-            </h3>
-            <p>
-              Mensalidade R$:{productItem.price.toFixed(2).replace(".", ",")}{" "}
-            </p>
-            <p>Categoria: {productItem.description}</p>
 
-            <Box bg={"whitesmoke"} m={"40px auto"}>
+
+            <Flex bg={"whitesmoke"} m={"40px auto"} w={'100%'} flexFlow={`row wrap`} >      
+            <Box h={'80vh'} bg={'orange.200'}  w={'50%'} minW={'380px'} justifyContent={'space-around'}>
+                <h2>{name}</h2>
+                <Image src={imageUrl} alt={'imagem do curso'} w={'100%'} h={'300px'} m={' auto'} objectFit={'cover'}/>
+                <ul>
+                  <li>R${price}</li>
+                  <li>{description}</li>
+                 </ul> 
+              </Box>
+              <Box h={'80vh'} bg={'orange.200'}  w={'50%'} minW={'380px'}>
               <h4>PEDIDO DE LOCAÇÃO</h4>
               <FormPurchase product={productItem} />
-            </Box>
-          </Box>
-        </Flex>
-      </div>
-      <div></div>
+              </Box>
+            </Flex>
+        
+     
+   
     </DetailsCtn>
   );
 }

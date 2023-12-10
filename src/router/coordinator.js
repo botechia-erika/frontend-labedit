@@ -24,3 +24,7 @@ export const goToLabeBooks = (navigate)=>{
 export const goToCourseDetails = (navigate, idCourse)=>{
     navigate(`/courses/${idCourse}`)
 }
+
+export const goToPostDetails = (navigate, idPost)=>{
+    navigate(`/posts/${idPost}`)
+}

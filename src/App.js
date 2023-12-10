@@ -4,10 +4,13 @@ import GlobalStyled from "./globals/globalStyled";
 import {Footer} from './components/Footer/Footer'
 import "./styles.css";
 import { EcommerceProvider } from "./globals/globalEcommerce";
+import {ProductsProvider} from './commons/context/productsContext'
 
 export default function App() {
   return (
-    <> <EcommerceProvider>
+    <> 
+    <ProductsProvider>
+    <EcommerceProvider>
       <ChakraProvider>
 
   <GlobalStyled/>
@@ -20,6 +23,8 @@ export default function App() {
       <Footer/>
     
     </ChakraProvider>
-    </EcommerceProvider>  </>
+    </EcommerceProvider> 
+    </ProductsProvider>
+     </>
   );
 }

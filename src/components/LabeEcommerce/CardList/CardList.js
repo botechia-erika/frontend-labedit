@@ -88,7 +88,7 @@ const [idCourse , setIdCourse ]= useState(item.id)
             <div>
               <h3>{item.name}</h3>
               <p>MATERIAL ONLINE & AO VIVO</p>
-              <img src={item.image_url} alt={'imagem do produto'} />
+              <img src={item.imageUrl} alt={'imagem do produto'} />
               <p>R$: {item.price.toFixed(2)}</p>
               <p>{item.description}</p>
               <Button onClick={()=>{goToCourseDetails(navigate, idCourse)}} item={item} >DETALHES</Button>

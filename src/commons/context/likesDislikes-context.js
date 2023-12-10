@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from "react";
-import { DefaultClicked } from "../components/LabeBooks/ButtonLikeDislike/DefaultClicked/DefaultClicked";
-import { DislikeClicked } from "../components/LabeBooks/ButtonLikeDislike/DislikeClicked/DislikeClicked";
-import { LikeClicked } from "../components/LabeBooks/ButtonLikeDislike/LikeClicked/LikeClicked";
+import { DefaultClicked } from "../../components/LabeBooks/ButtonLikeDislike/DefaultClicked/DefaultClicked";
+import { DislikeClicked } from "../../components/LabeBooks/ButtonLikeDislike/DislikeClicked/DislikeClicked";
+import { LikeClicked } from "../../components/LabeBooks/ButtonLikeDislike/LikeClicked/LikeClicked";
 
 export const LikesDislikesContext = createContext();
 
